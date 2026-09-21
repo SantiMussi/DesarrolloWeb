@@ -1,0 +1,21 @@
+body {
+    background-color: #F5F5DC;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333333;
+    margin: 0;
+    padding: 20px;
+}
+
+img {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+    line-height: 1.5;
+}
