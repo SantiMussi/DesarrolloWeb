@@ -7,10 +7,11 @@ body {
 }
 
 img {
-    max-width: 120px;
+    max-width: 200px;
     height: auto;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
+    margin-top: 60px;
 }
 
 h1,
