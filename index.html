@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,17 +9,68 @@
 </head>
 
 <body>
-    <h1>Grupo 10</h1>
-    <h3>Integrantes:</h3>
-    <ul>
-        <li>Agostino Lucía</li>
-        <li>Castaño Elina</li>
-        <li>Maestri Paula</li>
-        <li>Mussi Santiago</li>
-        <li>Peduto Lautaro</li>
-    </ul>
-    <img src="./imgs/logo.png" > 
-    <h2>PRÓXIMAMENTE RUTAS ZÁRATE</h2>
+    <header>
+        <div class="barra-navegacion">
+            <a class="marca" href="index.html">
+                <img class="logo-header" src="./imgs/logo1.png" alt="Logo de Rutas Zárate">
+            </a>
+            <nav>
+                <ul>
+                    <li> <a href="index.html" class="actual">Inicio</a> </li>
+                    <li> <a href="mate-algarrobo.html">Paseo Costanera</a> </li>
+                    <li> <a href="mate-calabaza.html">Capital del Tango</a> </li>
+                    <li> <a href="mate-imperial.html">Museo Quinta Jovita</a> </li>
+                    <li> <a href="mate-pezuna.html">Teatro Coliseo</a> </li>
+                    <li> <a href="mate-pezuna.html">Kartódromo Internacional</a> </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-texto">
+                <span class="ubicacion">Zárate, Provincia de Buenos Aires</span>
+                <h1>Descubrí Zárate</h1>
+                <p>Una guía simple para conocer la ciudad y sus atractivos turísticos más destacados.</p>
+                <a class="boton" href="#lugares">Ver recorrido</a>
+            </div>
+            <div class="imagen-hero">
+                <img src="./imgs/mapa.png" alt="Mapa turístico de Zárate">
+            </div>
+        </section>
+        <section class="lugares" id="lugares">
+            <h2>Lugares para conocer</h2>
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <div class="foto foto-costanera">FOTO</div>
+                    <h3>Paseo Costanera</h3>
+                    <p>Atractivo Natural</p>
+                    <a href="mate-algarrobo.html">Ver más</a>
+                </article>
+                <article class="tarjeta">
+                    <div class="foto foto-tango">FOTO</div>
+                    <h3>Capital del Tango</h3>
+                    <p>Cultura &amp; Historia</p>
+                    <a href="mate-calabaza.html">Ver más</a>
+                </article>
+                <article class="tarjeta">
+                    <div class="foto foto-museo">FOTO</div>
+                    <h3>Museo Quinta Jovita</h3>
+                    <p>Museo Histórico</p>
+                    <a href="mate-imperial.html">Ver más</a>
+                </article>
+                <article class="tarjeta">
+                    <div class="foto foto-teatro">FOTO</div>
+                    <h3>Teatro Coliseo</h3>
+                    <p>Teatro &amp; Espectáculos</p>
+                    <a href="mate-pezuna.html">Ver más</a>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer> 
+        <h6> Grupo 10: Agostino Lucía, Castaño Elina, Maestri Paula, Mussi Santiago, Peduto Lautaro </h6>
+    </footer>
 </body>
 
 </html>

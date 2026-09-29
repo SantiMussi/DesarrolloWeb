@@ -1,22 +1,272 @@
 body {
-    background-color: #F5F5DC;
+    background-color: #fff7e8;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: #333333;
+    color: #123d4d;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #073d4f;
+    color: #ffffff;
+    padding: 1rem 3%;
+}
+
+.barra-navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    gap: 2rem;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo-header {
+    width: 135px;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    color: #ffffff;
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    min-height: 250px;
+    padding: 0.5rem 3% 2rem;
+    background-color: #073d4f;
+    color: #ffffff;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding: 0.75rem 5%;
+}
+
+footer h6 {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.hero-texto,
+.imagen-hero {
+    width: 48%;
+}
+
+.hero-texto {
+    max-width: 600px;
+}
+
+.ubicacion {
+    display: inline-block;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid #7eafc1;
+    border-radius: 1rem;
+    background-color: #2d6579;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.hero h1 {
+    margin: 1.5rem 0 0.75rem;
+    color: #ffffff;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 0 1.25rem;
+    color: #d8e4e7;
+    font-size: 1rem;
+}
+
+.boton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.8rem;
+    background-color: #ffd45c;
+    color: #123d4d;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.imagen-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    align-self: flex-start;
+}
+
+.imagen-hero img {
+    width: 100%;
+    height: auto;
+    max-height: 390px;
+    object-fit: contain;
+    border-radius: 30px;
+}
+
+.lugares {
+    padding: 1.5rem 3% 2rem;
+}
+
+.lugares h2 {
+    max-width: 1200px;
+    margin: 0 auto 1rem;
+    font-size: 1rem;
+}
+
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta {
+    flex: 1 1 220px;
+    min-height: 220px;
+    padding: 0.7rem;
+    border: 1px solid #e7dcca;
+    border-radius: 0.7rem;
+    background-color: #fffdfa;
+}
+
+.foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 98px;
+    border-radius: 0.45rem;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.foto-costanera {
+    background-color: #073d4f;
+}
+
+.foto-tango {
+    background-color: #115c76;
+}
+
+.foto-museo {
+    background-color: #36758d;
+}
+
+.foto-teatro {
+    background-color: #8db2c0;
+}
+
+.tarjeta h3 {
+    margin: 0.7rem 0 0.25rem;
+    font-size: 0.8rem;
+}
+
+.tarjeta p {
+    margin: 0;
+    color: #788690;
+    font-size: 0.7rem;
+}
+
+.tarjeta a {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 1rem;
+    background-color: #dcebef;
+    color: #286176;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 img {
-    max-width: 200px;
+    max-width: 100%;
     height: auto;
     display: block;
-    margin-bottom: 60px;
-    margin-top: 60px;
+    margin: 0;
 }
 
-h1,
-h2,
-p {
-    margin-top: 0;
-    line-height: 1.5;
+h2 {
+    line-height: 1.3;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    .barra-navegacion,
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+
+    .barra-navegacion nav,
+    .hero-texto,
+    .imagen-hero {
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 2rem 7%;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 13vw, 4rem);
+    }
+
+    .logo-header {
+        width: 110px;
+    }
+
+    .imagen-hero {
+        min-height: 100px;
+    }
+
+    .lugares {
+        padding: 1.5rem 7% 2rem;
+    }
 }
