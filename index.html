@@ -4,73 +4,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad 2 Grupo 10</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Rutas Zárate</title>
+    <meta name="description" content="Guía para conocer Zárate: costanera, capital del tango, museo, teatro y kartódromo.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="css/componentes.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petroleo: '#073d4f',
+                        azul: '#2f6a82',
+                        crema: '#fff7e8',
+                        texto: '#123d4d',
+                        celeste: '#daedf3',
+                        amarillo: '#f6d56b'
+                    },
+                    fontFamily: {
+                        titulo: ['Poppins', 'sans-serif'],
+                        cuerpo: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body>
-    <header>
-        <div class="barra-navegacion">
-            <a class="marca" href="index.html">
-                <img class="logo-header" src="./imgs/logo1.png" alt="Logo de Rutas Zárate">
+<body class="bg-crema text-texto font-cuerpo min-h-screen flex flex-col">
+
+    <header data-transparente class="fixed top-0 inset-x-0 z-30 text-white transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+            <a href="index.html" class="foco">
+                <img src="./imgs/logo1.png" alt="Rutas Zárate, ir al inicio" class="w-24">
             </a>
-            <nav>
-                <ul>
-                    <li> <a href="index.html" class="actual">Inicio</a> </li>
-                    <li> <a href="mate-algarrobo.html">Paseo Costanera</a> </li>
-                    <li> <a href="mate-calabaza.html">Capital del Tango</a> </li>
-                    <li> <a href="mate-imperial.html">Museo Quinta Jovita</a> </li>
-                    <li> <a href="mate-pezuna.html">Teatro Coliseo</a> </li>
-                    <li> <a href="mate-pezuna.html">Kartódromo Internacional</a> </li>
+
+            <nav class="hidden md:block" aria-label="Principal">
+                <ul class="flex gap-6 text-sm">
+                    <li><a href="index.html" aria-current="page" class="font-semibold text-amarillo underline underline-offset-4 foco">Inicio</a></li>
+                    <li><a href="costanera.html" class="hover:underline foco">Paseo Costanera</a></li>
+                    <li><a href="capital-del-tango.html" class="hover:underline foco">Capital del Tango</a></li>
+                    <li><a href="quinta-jovita.html" class="hover:underline foco">Museo Quinta Jovita</a></li>
+                    <li><a href="teatro-coliseo.html" class="hover:underline foco">Teatro Coliseo</a></li>
+                    <li><a href="kartodromo.html" class="hover:underline foco">Kartódromo</a></li>
                 </ul>
             </nav>
+
+            <button id="abrir-menu" type="button" aria-label="Abrir menú" aria-expanded="false" class="md:hidden p-1 foco">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
     </header>
-    <main>
-        <section class="hero">
-            <div class="hero-texto">
-                <span class="ubicacion">Zárate, Provincia de Buenos Aires</span>
-                <h1>Descubrí Zárate</h1>
-                <p>Una guía simple para conocer la ciudad y sus atractivos turísticos más destacados.</p>
-                <a class="boton" href="#lugares">Ver recorrido</a>
+
+    <!-- menu de celu -->
+    <div id="menu-celu" class="hidden fixed inset-0 z-40 bg-black/60 md:hidden">
+        <div class="bg-petroleo text-white rounded-3xl m-5 p-6">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-titulo font-bold">Rutas Zárate</span>
+                <button id="cerrar-menu" type="button" aria-label="Cerrar menú" class="p-1 foco">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M5 5l14 14M19 5L5 19" />
+                    </svg>
+                </button>
             </div>
-            <div class="imagen-hero">
-                <img src="./imgs/mapa.png" alt="Mapa turístico de Zárate">
+            <ul class="space-y-1">
+                <li><a href="index.html" aria-current="page" class="block py-2 font-semibold text-amarillo foco">Inicio</a></li>
+                <li><a href="costanera.html" class="block py-2 foco">Paseo Costanera Zárate</a></li>
+                <li><a href="capital-del-tango.html" class="block py-2 foco">Ciudad Capital del Tango</a></li>
+                <li><a href="quinta-jovita.html" class="block py-2 foco">Museo Quinta Jovita</a></li>
+                <li><a href="teatro-coliseo.html" class="block py-2 foco">Teatro Coliseo</a></li>
+                <li><a href="kartodromo.html" class="block py-2 foco">Kartódromo Internacional</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="flex-1">
+
+        <section class="relative bg-petroleo text-white">
+            <!-- foto de fondo oscurecida -->
+            <img src="./imgs/hero-zarate.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-petroleo/80"></div>
+
+            <div class="relative max-w-6xl mx-auto px-5 pt-32 pb-12 min-h-[80vh] md:min-h-[70vh] flex flex-col md:flex-row md:items-center gap-10">
+                <div class="md:w-1/2">
+                    <span class="inline-block border border-celeste/60 bg-azul rounded-full px-3 py-1 text-xs font-semibold">Zárate, Provincia de Buenos Aires</span>
+                    <h1 class="font-titulo font-bold text-5xl md:text-7xl mt-5 mb-3">Descubrí Zárate</h1>
+                    <p class="text-celeste mb-6 max-w-md">Una guía simple para conocer la ciudad y sus atractivos turísticos más destacados.</p>
+                    <a href="#lugares" class="inline-block bg-amarillo text-texto font-bold rounded-xl px-6 py-3 hover:brightness-95 foco">Ver recorrido</a>
+                </div>
+
+                <figure class="relative md:w-1/2 bg-crema rounded-3xl p-2 shadow-2xl">
+                    <img src="./imgs/mapa.png" alt="Mapa turístico de Zárate con los puntos del recorrido" class="w-full rounded-2xl">
+                    <figcaption class="absolute left-5 bottom-5 bg-petroleo text-white text-xs font-semibold rounded-full px-3 py-1">Mapa del recorrido</figcaption>
+                </figure>
             </div>
         </section>
-        <section class="lugares" id="lugares">
-            <h2>Lugares para conocer</h2>
-            <div class="tarjetas">
-                <article class="tarjeta">
-                    <div class="foto foto-costanera">FOTO</div>
-                    <h3>Paseo Costanera</h3>
-                    <p>Atractivo Natural</p>
-                    <a href="mate-algarrobo.html">Ver más</a>
+
+        <section id="lugares" class="max-w-6xl mx-auto px-5 py-10">
+            <h2 class="font-titulo font-bold text-2xl mb-5">Lugares para conocer</h2>
+
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <article class="bg-white border border-[#e7dcca] rounded-xl p-3 flex flex-col">
+                    <div class="h-28 rounded-lg bg-petroleo text-white text-xs font-bold flex items-center justify-center">FOTO</div>
+                    <h3 class="font-titulo font-semibold mt-3">Paseo Costanera</h3>
+                    <p class="text-sm text-gray-600">Atractivo natural</p>
+                    <a href="costanera.html" class="mt-5 self-start bg-celeste text-azul text-sm font-semibold rounded-full px-4 py-1 hover:underline foco-oscuro">Ver más</a>
                 </article>
-                <article class="tarjeta">
-                    <div class="foto foto-tango">FOTO</div>
-                    <h3>Capital del Tango</h3>
-                    <p>Cultura &amp; Historia</p>
-                    <a href="mate-calabaza.html">Ver más</a>
+
+                <article class="bg-white border border-[#e7dcca] rounded-xl p-3 flex flex-col">
+                    <div class="h-28 rounded-lg bg-[#115c76] text-white text-xs font-bold flex items-center justify-center">FOTO</div>
+                    <h3 class="font-titulo font-semibold mt-3">Capital del Tango</h3>
+                    <p class="text-sm text-gray-600">Cultura e historia</p>
+                    <a href="capital-del-tango.html" class="mt-5 self-start bg-celeste text-azul text-sm font-semibold rounded-full px-4 py-1 hover:underline foco-oscuro">Ver más</a>
                 </article>
-                <article class="tarjeta">
-                    <div class="foto foto-museo">FOTO</div>
-                    <h3>Museo Quinta Jovita</h3>
-                    <p>Museo Histórico</p>
-                    <a href="mate-imperial.html">Ver más</a>
+
+                <article class="bg-white border border-[#e7dcca] rounded-xl p-3 flex flex-col">
+                    <div class="h-28 rounded-lg bg-[#36758d] text-white text-xs font-bold flex items-center justify-center">FOTO</div>
+                    <h3 class="font-titulo font-semibold mt-3">Museo Quinta Jovita</h3>
+                    <p class="text-sm text-gray-600">Museo histórico</p>
+                    <a href="quinta-jovita.html" class="mt-5 self-start bg-celeste text-azul text-sm font-semibold rounded-full px-4 py-1 hover:underline foco-oscuro">Ver más</a>
                 </article>
-                <article class="tarjeta">
-                    <div class="foto foto-teatro">FOTO</div>
-                    <h3>Teatro Coliseo</h3>
-                    <p>Teatro &amp; Espectáculos</p>
-                    <a href="mate-pezuna.html">Ver más</a>
+
+                <article class="bg-white border border-[#e7dcca] rounded-xl p-3 flex flex-col">
+                    <div class="h-28 rounded-lg bg-[#5f8da0] text-white text-xs font-bold flex items-center justify-center">FOTO</div>
+                    <h3 class="font-titulo font-semibold mt-3">Teatro Coliseo</h3>
+                    <p class="text-sm text-gray-600">Teatro y espectáculos</p>
+                    <a href="teatro-coliseo.html" class="mt-5 self-start bg-celeste text-azul text-sm font-semibold rounded-full px-4 py-1 hover:underline foco-oscuro">Ver más</a>
+                </article>
+
+                <article class="bg-white border border-[#e7dcca] rounded-xl p-3 flex flex-col">
+                    <div class="h-28 rounded-lg bg-[#1d4e63] text-white text-xs font-bold flex items-center justify-center">FOTO</div>
+                    <h3 class="font-titulo font-semibold mt-3">Kartódromo Internacional</h3>
+                    <p class="text-sm text-gray-600">Karting y aventura</p>
+                    <a href="kartodromo.html" class="mt-5 self-start bg-celeste text-azul text-sm font-semibold rounded-full px-4 py-1 hover:underline foco-oscuro">Ver más</a>
                 </article>
             </div>
         </section>
     </main>
-    <footer> 
-        <h6> Grupo 10: Agostino Lucía, Castaño Elina, Maestri Paula, Mussi Santiago, Peduto Lautaro </h6>
+
+    <footer class="bg-petroleo text-white text-xs">
+        <div class="max-w-6xl mx-auto px-5 py-4">
+            <p>Grupo 10: Agostino Lucía, Castaño Elina, Maestri Paula, Mussi Santiago, Peduto Lautaro</p>
+            <p class="mt-1 text-celeste">
+                Foto de portada: "Zarate - Brazo Largo Bridge", de lrargerich (Flickr),
+                <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener" class="underline">CC BY 2.0</a>,
+                vía <a href="https://commons.wikimedia.org/wiki/File:Zarate_-_Brazo_Largo_Bridge.jpg" target="_blank" rel="noopener" class="underline">Wikimedia Commons</a>.
+            </p>
+        </div>
     </footer>
+
+    <script src="js/navbar.js"></script>
 </body>
 
 </html>
