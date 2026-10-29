@@ -1,0 +1,11 @@
+/* foco visible al navegar con teclado */
+.foco:focus-visible {
+    outline: 2px solid #f6d56b;
+    outline-offset: 2px;
+}
+
+/* para fondos claros */
+.foco-oscuro:focus-visible {
+    outline: 2px solid #073d4f;
+    outline-offset: 2px;
+}
