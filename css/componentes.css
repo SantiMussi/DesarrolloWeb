@@ -1,11 +1,83 @@
+/* colores del sitio, los mismos que en la config de tailwind */
+:root {
+    --petroleo: #073d4f;
+    --azul: #2f6a82;
+    --crema: #fff7e8;
+    --texto: #123d4d;
+    --celeste: #daedf3;
+    --amarillo: #f6d56b;
+    --borde: #e7dcca;
+}
+
 /* foco visible al navegar con teclado */
 .foco:focus-visible {
-    outline: 2px solid #f6d56b;
+    outline: 2px solid var(--amarillo);
     outline-offset: 2px;
 }
 
 /* para fondos claros */
 .foco-oscuro:focus-visible {
-    outline: 2px solid #073d4f;
+    outline: 2px solid var(--petroleo);
     outline-offset: 2px;
+}
+
+/* boton amarillo principal */
+.boton-principal {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    background-color: var(--amarillo);
+    color: var(--texto);
+    font-weight: 700;
+}
+
+.boton-principal:hover {
+    filter: brightness(0.95);
+}
+
+/* boton con borde, para ir a la parada anterior o siguiente */
+.boton-nav {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--azul);
+    border-radius: 1rem;
+    color: var(--azul);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.boton-nav:hover {
+    background-color: var(--celeste);
+}
+
+/* tarjeta de cada lugar en la principal */
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    border: 1px solid var(--borde);
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+}
+
+/* boton chico "ver más" de las tarjetas */
+.ver-mas {
+    align-self: flex-start;
+    margin-top: 1.25rem;
+    padding: 0.25rem 1rem;
+    border-radius: 999px;
+    background-color: var(--celeste);
+    color: var(--azul);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.ver-mas:hover {
+    text-decoration: underline;
+}
+
+/* bloques de colores de las paginas de detalle (el color va en cada pagina) */
+.bloque {
+    padding: 1.25rem;
+    border-radius: 1.5rem;
 }
