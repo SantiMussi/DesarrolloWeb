@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital del Tango - Rutas Zárate</title>
+    <meta name="description"
+        content="Anfiteatro Homero Expósito y Paseo de los Naranjos: el recorrido tanguero de Zárate.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="css/componentes.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petroleo: '#073d4f',
+                        azul: '#2f6a82',
+                        crema: '#fff7e8',
+                        texto: '#123d4d',
+                        verde: '#cfe8d6',
+                        celeste: '#daedf3',
+                        amarillo: '#f6d56b'
+                    },
+                    fontFamily: {
+                        titulo: ['Poppins', 'sans-serif'],
+                        cuerpo: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-crema text-texto font-cuerpo min-h-screen flex flex-col">
+
+    <header class="bg-petroleo text-white">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+
+            <!-- en celular es volver, en compu: logo -->
+            <a href="index.html#lugares" class="md:hidden font-titulo font-semibold foco">&lsaquo; Volver</a>
+            <a href="index.html" class="hidden md:block foco">
+                <img src="./imgs/logo1.png" alt="Rutas Zárate, ir al inicio" class="w-32">
+            </a>
+
+            <nav class="hidden md:block" aria-label="Principal">
+                <ul class="flex gap-6 text-sm">
+                    <li><a href="index.html" class="hover:underline foco">Inicio</a></li>
+                    <li><a href="costanera.html" class="hover:underline foco">Paseo Costanera</a></li>
+                    <li><a href="capital-del-tango.html" aria-current="page"
+                            class="font-semibold text-amarillo underline underline-offset-4 foco">Capital del Tango</a>
+                    </li>
+                    <li><a href="quinta-jovita.html" class="hover:underline foco">Museo Quinta Jovita</a></li>
+                    <li><a href="teatro-coliseo.html" class="hover:underline foco">Teatro Coliseo</a></li>
+                    <li><a href="kartodromo.html" class="hover:underline foco">Kartódromo</a></li>
+                    <li class="ml-4 border-l border-white/40 pl-5">
+                        <button id="ver-carrito" type="button"
+                            class="w-36 text-left whitespace-nowrap font-semibold hover:underline foco">
+                            Mi carrito
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <button id="abrir-menu" type="button" aria-label="Abrir menú" aria-expanded="false"
+                class="md:hidden p-1 foco">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- menu de celu -->
+    <div id="menu-celu" class="hidden fixed inset-0 z-40 bg-black/60 md:hidden">
+        <div class="bg-petroleo text-white rounded-3xl m-5 p-6">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-titulo font-bold">Rutas Zárate</span>
+                <button id="cerrar-menu" type="button" aria-label="Cerrar menú" class="p-1 foco">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M5 5l14 14M19 5L5 19" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="space-y-1">
+                <li><a href="index.html" class="block py-2 foco">Inicio</a></li>
+                <li><a href="costanera.html" class="block py-2 foco">Paseo Costanera Zárate</a></li>
+                <li><a href="capital-del-tango.html" aria-current="page"
+                        class="block py-2 font-semibold text-amarillo foco">Ciudad Capital del Tango</a></li>
+                <li><a href="quinta-jovita.html" class="block py-2 foco">Museo Quinta Jovita</a></li>
+                <li><a href="teatro-coliseo.html" class="block py-2 foco">Teatro Coliseo</a></li>
+                <li><a href="kartodromo.html" class="block py-2 foco">Kartódromo Internacional</a></li>
+                <li class="border-t border-white/40">
+                    <button id="ver-carrito-celu" type="button"
+                        class="block py-3 font-semibold foco">
+                        Mi carrito
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <main id="contenido" class="flex-1 max-w-6xl w-full mx-auto px-5 py-5 md:py-8">
+
+        <!-- carrusel -->
+        <section aria-label="Imágenes de Capital del Tango" class="relative bg-petroleo rounded-3xl overflow-hidden">
+            <div id="slides" class="h-56 md:h-96">
+                <img src="./imgs/tango-anfiteatro.jpg" alt="Anfiteatro Homero y Virgilio Expósito, en Plaza Italia"
+                    class="slide w-full h-full object-cover text-white">
+                <img src="./imgs/tango-naranjos.jpg"
+                    alt="Estrofas de Naranjo en flor pintadas en carteles sobre el empedrado de la calle Dorrego"
+                    class="slide hidden w-full h-full object-cover text-white">
+            </div>
+
+
+            <button id="anterior" type="button" aria-label="Imagen anterior"
+                class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 text-texto rounded-full w-9 h-9 text-xl leading-none foco">&lsaquo;</button>
+            <button id="siguiente" type="button" aria-label="Imagen siguiente"
+                class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 text-texto rounded-full w-9 h-9 text-xl leading-none foco">&rsaquo;</button>
+
+            <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2" id="puntos"></div>
+        </section>
+
+        <!-- titulo y boton de ubicacion -->
+        <div class="mt-6 md:flex md:items-start md:justify-between md:gap-6">
+            <div class="md:max-w-3xl">
+                <div class="flex flex-wrap items-center gap-3">
+                    <h1 class="font-titulo font-bold text-3xl md:text-4xl">
+                        Capital del Tango
+                    </h1>
+                    <button id="ver-ubicacion" type="button"
+                        class="text-sm underline text-azul foco-oscuro">
+                        Ver ubicación
+                    </button>
+                </div>
+                <p class="font-titulo font-semibold text-azul mt-1">Ciudad Provincial del Tango</p>
+                <p class="mt-2 leading-relaxed">
+                    Un recorrido por los lugares que le dan a Zárate su título de capital del tango y por la huella de
+                    los hermanos Homero y Virgilio Expósito, que nacieron acá.
+                </p>
+                <ul class="mt-3 text-sm space-y-1 list-disc pl-5">
+                    <li><strong>Cuna de artistas:</strong> vio nacer a músicos, compositores y poetas fundamentales del
+                        género.</li>
+                    <li><strong>Visitas históricas:</strong> pasaron por la ciudad Carlos Gardel, Osvaldo Pugliese y
+                        Roberto Goyeneche.</li>
+                    <li><strong>Reconocimiento legal:</strong> fue declarada Ciudad Provincial del Tango a fines de
+                        2009, por la Ley provincial N.° 14.091.</li>
+                </ul>
+            </div>
+            <div class="mt-4 md:mt-0 md:shrink-0">
+                <button id="agregar-recorrido" type="button"
+                    aria-pressed="false"
+                    class="bg-azul text-white font-semibold rounded-2xl px-5 py-3 hover:brightness-110 foco-oscuro">
+                    Agregar al carrito
+                </button>
+
+                <p id="mensaje-recorrido"
+                    role="status"
+                    class="mt-2 text-sm md:max-w-56"></p>
+            </div>
+        </div>
+
+        <!-- bloques: en celu se abren y cierran, en compu quedan abiertos -->
+        <div class="mt-6 grid gap-4 md:grid-cols-3 md:items-start">
+
+            <section class="bloque bg-verde">
+                <h2>
+                    <button type="button" aria-expanded="false"
+                        class="titulo-bloque w-full flex items-center justify-between text-left font-titulo font-bold text-lg md:cursor-default foco-oscuro">
+                        Actividades
+                        <span class="flecha md:hidden">&#9662;</span>
+                    </button>
+                </h2>
+                <div class="panel hidden md:block mt-3 text-sm leading-relaxed space-y-3">
+                    <p><strong>Festival Provincial del Tango.</strong> Se hace todos los años en marzo, por el
+                        aniversario de la ciudad, con espectáculos de artistas locales e internacionales.</p>
+                    <p><strong>Anfiteatro Homero y Virgilio Expósito.</strong> Escenario al aire libre en Plaza Italia.
+                        Los espectáculos dependen de la agenda municipal.</p>
+                    <p><strong>Paseo de los Naranjos.</strong> Homenaje peatonal sobre el empedrado de la calle Dorrego,
+                        inspirado en el tango "Naranjo en flor". Las estrofas están pintadas en carteles con fileteado
+                        porteño del artista Carlos Núbile.</p>
+                </div>
+            </section>
+
+            <section class="bloque bg-celeste">
+                <h2>
+                    <button type="button" aria-expanded="false"
+                        class="titulo-bloque w-full flex items-center justify-between text-left font-titulo font-bold text-lg md:cursor-default foco-oscuro">
+                        Datos útiles
+                        <span class="flecha md:hidden">&#9662;</span>
+                    </button>
+                </h2>
+                <dl class="panel hidden md:block mt-3 text-sm leading-relaxed space-y-3">
+                    <div>
+                        <dt class="font-semibold">Ubicación</dt>
+                        <dd>Anfiteatro: Plaza Italia, Zárate.</dd>
+                        <dd>Paseo de los Naranjos: calle Dorrego, entre Pasaje Chaco y San Martín (barrio Villa Fox).
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold">Horarios</dt>
+                        <dd>Son espacios al aire libre y se pueden visitar todo el día.</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold">Acceso</dt>
+                        <dd>Libre y gratuito.</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold">Duración estimada</dt>
+                        <dd>De 1 a 1,5 horas para los dos puntos.</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="bloque bg-amarillo">
+                <h2>
+                    <button type="button" aria-expanded="false"
+                        class="titulo-bloque w-full flex items-center justify-between text-left font-titulo font-bold text-lg md:cursor-default foco-oscuro">
+                        Recomendación
+                        <span class="flecha md:hidden">&#9662;</span>
+                    </button>
+                </h2>
+                <div class="panel hidden md:block mt-3 text-sm leading-relaxed space-y-3">
+                    <p>Llevá la cámara: el empedrado de la calle Dorrego tiene mucho arte urbano para fotografiar.</p>
+                    <p>Si querés ir al Festival del Tango, confirmá la fecha y la sede en la web de la Municipalidad. La
+                        entrada es gratuita.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- mapa, se muestra con el boton -->
+        <section id="ubicacion" class="mt-8" aria-labelledby="titulo-mapa" tabindex="-1">
+            <h2 id="titulo-mapa" class="font-titulo font-bold text-2xl mb-3">Ubicación</h2>
+            <div class="grid gap-4 md:grid-cols-2">
+                <div>
+                    <h3 class="font-semibold mb-2">Anfiteatro Homero y Virgilio Expósito</h3>
+                    <iframe title="Mapa del Anfiteatro Homero y Virgilio Expósito"
+                        src="https://www.google.com/maps?q=Anfiteatro+Homero+Exposito+Zarate&output=embed"
+                        class="w-full h-64 rounded-2xl border border-[#e7dcca]" loading="lazy"></iframe>
+                    <a href="https://maps.app.goo.gl/mmzfTr2zfyiK7aSG6" target="_blank" rel="noopener"
+                        class="inline-block mt-2 text-sm underline text-azul foco-oscuro">Abrir en Google Maps</a>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Paseo de los Naranjos</h3>
+                    <iframe title="Mapa del Paseo de los Naranjos"
+                        src="https://www.google.com/maps?q=Paseo+de+los+Naranjos+Dorrego+Zarate&output=embed"
+                        class="w-full h-64 rounded-2xl border border-[#e7dcca]" loading="lazy"></iframe>
+                    <a href="https://maps.app.goo.gl/pgXEe1VwqqDT1pQn7" target="_blank" rel="noopener"
+                        class="inline-block mt-2 text-sm underline text-azul foco-oscuro">Abrir en Google Maps</a>
+                </div>
+            </div>
+        </section>
+
+        <nav class="mt-10 flex flex-wrap gap-3 justify-between" aria-label="Otras paradas">
+            <a href="costanera.html"
+                class="boton-nav foco-oscuro">&larr;
+                Paseo Costanera</a>
+            <a href="index.html#lugares"
+                class="boton-principal foco-oscuro">Volver al
+                recorrido</a>
+            <a href="quinta-jovita.html"
+                class="boton-nav foco-oscuro">Teatro Coliseo &rarr;</a>
+        </nav>
+    </main>
+
+    <footer class="bg-petroleo text-white text-xs">
+        <div class="max-w-6xl mx-auto px-5 py-4">
+            Grupo 10: Agostino Lucía, Castaño Elina, Maestri Paula, Mussi Santiago, Peduto Lautaro
+        </div>
+    </footer>
+    <script src="js/detalle.js"></script>
+</body>
+
+</html>

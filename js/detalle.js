@@ -66,7 +66,95 @@ for (var j = 0; j < titulos.length; j++) {
 // ver ubicacion
 var seccionMapa = document.getElementById('ubicacion');
 document.getElementById('ver-ubicacion').addEventListener('click', function () {
-    seccionMapa.classList.remove('hidden');
+    seccionMapa.focus({ preventScroll: true });
     seccionMapa.scrollIntoView({ behavior: 'smooth' });
-    seccionMapa.focus();
 });
+
+// Agregar o quitar del recorrido
+let cantidad = 0;
+let actividades = '';
+
+let botonRecorrido = document.getElementById('agregar-recorrido');
+let mensaje = document.getElementById('mensaje-recorrido');
+let carrito = document.getElementById('ver-carrito');
+let carritoCelu = document.getElementById('ver-carrito-celu');
+
+let popup = document.getElementById('popup-actividades');
+let anfiteatro = document.getElementById('check-anfiteatro');
+let naranjos = document.getElementById('check-naranjos');
+let confirmar = document.getElementById('confirmar-actividades');
+let cancelar = document.getElementById('cancelar-actividades');
+
+function actualizarCarrito() {
+    if (cantidad === 0) {
+        carrito.textContent = 'Mi carrito';
+        carritoCelu.textContent = 'Mi carrito';
+        botonRecorrido.textContent = 'Agregar al carrito';
+    } else {
+        carrito.textContent = 'Mi carrito (' + cantidad + ')';
+        carritoCelu.textContent = 'Mi carrito (' + cantidad + ')';
+        botonRecorrido.textContent = 'Quitar del carrito';
+    }
+}
+
+botonRecorrido.addEventListener('click', function () {
+    if (cantidad === 0) {
+        anfiteatro.checked = true;
+        naranjos.checked = true;
+        popup.style.display = 'flex';
+        anfiteatro.focus();
+    } else {
+        cantidad = 0;
+        actividades = '';
+        mensaje.textContent = 'Se quitaron las actividades.';
+        actualizarCarrito();
+    }
+});
+
+confirmar.addEventListener('click', function () {
+    if (anfiteatro.checked === false && naranjos.checked === false) {
+        alert('Seleccioná al menos una actividad.');
+        return;
+    }
+
+    cantidad = 0;
+    actividades = '';
+
+    if (anfiteatro.checked === true) {
+        cantidad = cantidad + 1;
+        actividades = 'Anfiteatro Homero y Virgilio Expósito\n';
+    }
+
+    if (naranjos.checked === true) {
+        cantidad = cantidad + 1;
+        actividades = actividades + 'Paseo de los Naranjos\n';
+    }
+
+    actualizarCarrito();
+    mensaje.textContent = 'Actividades guardadas.';
+    cerrarPopup();
+});
+
+function cerrarPopup() {
+    popup.style.display = 'none';
+    botonRecorrido.focus();
+}
+
+cancelar.addEventListener('click', cerrarPopup);
+
+document.addEventListener('keydown', function (evento) {
+    if (evento.key === 'Escape' && popup.style.display === 'flex') {
+        cerrarPopup();
+    }
+});
+
+function mostrarCarrito() {
+    if (cantidad === 0) {
+        alert('Todavía no agregaste ninguna actividad.');
+    } else {
+        alert('Tus actividades:\n\n' + actividades);
+    }
+}
+
+carrito.addEventListener('click', mostrarCarrito);
+carritoCelu.addEventListener('click', mostrarCarrito);
