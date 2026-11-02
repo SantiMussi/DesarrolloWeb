@@ -285,24 +285,28 @@
         style="display: none;"
         class="fixed inset-0 z-50 bg-black/60 items-center justify-center p-5">
 
-        <div role="dialog" aria-labelledby="titulo-popup"
-            class="bg-crema text-texto rounded-2xl p-6 w-full max-w-md">
+        <div role="dialog" aria-modal="true" aria-labelledby="titulo-popup"
+            class="bg-crema text-texto rounded-2xl p-6 w-full max-w-md max-h-full overflow-y-auto">
 
             <h2 id="titulo-popup" class="font-titulo font-bold text-xl">
                 ¿Qué actividades querés agregar?
             </h2>
 
-            <label class="flex items-center gap-3 mt-5">
-                <input id="check-anfiteatro" type="checkbox" checked>
-                Anfiteatro Homero y Virgilio Expósito
-            </label>
+            <div class="mt-4 divide-y divide-[#e7dcca] border-y border-[#e7dcca]">
+                <label class="flex items-center gap-3 py-3 cursor-pointer">
+                    <input id="check-anfiteatro" type="checkbox" checked class="casilla">
+                    Anfiteatro Homero y Virgilio Expósito
+                </label>
 
-            <label class="flex items-center gap-3 mt-4">
-                <input id="check-naranjos" type="checkbox" checked>
-                Paseo de los Naranjos
-            </label>
+                <label class="flex items-center gap-3 py-3 cursor-pointer">
+                    <input id="check-naranjos" type="checkbox" checked class="casilla">
+                    Paseo de los Naranjos
+                </label>
+            </div>
 
-            <div class="flex justify-end gap-4 mt-6">
+            <p id="mensaje-popup" role="alert" class="mt-3 text-sm font-semibold text-red-800"></p>
+
+            <div class="flex justify-end gap-4 mt-4">
                 <button id="cancelar-actividades" type="button"
                     class="underline foco-oscuro">
                     Cancelar

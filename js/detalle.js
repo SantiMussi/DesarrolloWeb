@@ -84,6 +84,7 @@ let anfiteatro = document.getElementById('check-anfiteatro');
 let naranjos = document.getElementById('check-naranjos');
 let confirmar = document.getElementById('confirmar-actividades');
 let cancelar = document.getElementById('cancelar-actividades');
+let mensajePopup = document.getElementById('mensaje-popup');
 
 function actualizarCarrito() {
     if (cantidad === 0) {
@@ -101,6 +102,7 @@ botonRecorrido.addEventListener('click', function () {
     if (cantidad === 0) {
         anfiteatro.checked = true;
         naranjos.checked = true;
+        mensajePopup.textContent = '';
         popup.style.display = 'flex';
         anfiteatro.focus();
     } else {
@@ -113,7 +115,7 @@ botonRecorrido.addEventListener('click', function () {
 
 confirmar.addEventListener('click', function () {
     if (anfiteatro.checked === false && naranjos.checked === false) {
-        alert('Seleccioná al menos una actividad.');
+        mensajePopup.textContent = 'Seleccioná al menos una actividad.';
         return;
     }
 
@@ -150,9 +152,9 @@ document.addEventListener('keydown', function (evento) {
 
 function mostrarCarrito() {
     if (cantidad === 0) {
-        alert('Todavía no agregaste ninguna actividad.');
+        mensaje.textContent = 'Todavía no agregaste ninguna actividad.';
     } else {
-        alert('Tus actividades:\n\n' + actividades);
+        mensaje.textContent = 'En tu carrito: ' + actividades.trim().split('\n').join(', ') + '.';
     }
 }
 
