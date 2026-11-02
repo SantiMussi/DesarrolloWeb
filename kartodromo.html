@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capital del Tango - Rutas Zárate</title>
+    <title>Kartódromo - Rutas Zárate</title>
     <meta name="description"
-        content="Anfiteatro Homero Expósito y Paseo de los Naranjos: el recorrido tanguero de Zárate.">
+        content="Pista de go kart en Zárate.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,13 +53,11 @@
             <nav class="hidden md:block" aria-label="Principal">
                 <ul class="flex gap-6 text-sm">
                     <li><a href="index.html" class="hover:underline foco">Inicio</a></li>
-                    <li><a href="costanera.html" class="hover:underline foco">Paseo Costanera</a></li>
-                    <li><a href="capital-del-tango.html" aria-current="page"
-                            class="font-semibold text-amarillo underline underline-offset-4 foco">Capital del Tango</a>
-                    </li>
-                    <li><a href="quinta-jovita.html" class="hover:underline foco">Museo Quinta Jovita</a></li>
+                    <li><a href="paseo-costanera.html" class="hover:underline foco">Paseo Costanera</a></li>
+                    <li><a href="capital-del-tango.html" class="hover:underline foco">Capital del Tango</a></li>
                     <li><a href="teatro-coliseo.html" class="hover:underline foco">Teatro Coliseo</a></li>
-                    <li><a href="kartodromo.html" class="hover:underline foco">Kartódromo</a></li>
+                    <li><a href="kartodromo.html" aria-current="page"class="font-semibold text-amarillo underline underline-offset-4 foco">
+                        Kartódromo</a></li>
                     <li class="ml-4 border-l border-white/40 pl-5">
                         <button id="ver-carrito" type="button"
                             class="w-36 text-left whitespace-nowrap font-semibold hover:underline foco">
@@ -93,10 +91,9 @@
             </div>
             <ul class="space-y-1">
                 <li><a href="index.html" class="block py-2 foco">Inicio</a></li>
-                <li><a href="costanera.html" class="block py-2 foco">Paseo Costanera Zárate</a></li>
+                <li><a href="paseo-costanera.html" class="block py-2 foco">Paseo Costanera Zárate</a></li>
                 <li><a href="capital-del-tango.html" aria-current="page"
                         class="block py-2 font-semibold text-amarillo foco">Ciudad Capital del Tango</a></li>
-                <li><a href="quinta-jovita.html" class="block py-2 foco">Museo Quinta Jovita</a></li>
                 <li><a href="teatro-coliseo.html" class="block py-2 foco">Teatro Coliseo</a></li>
                 <li><a href="kartodromo.html" class="block py-2 foco">Kartódromo Internacional</a></li>
                 <li class="border-t border-white/40">
@@ -112,12 +109,16 @@
     <main id="contenido" class="flex-1 max-w-6xl w-full mx-auto px-5 py-5 md:py-8">
 
         <!-- carrusel -->
-        <section aria-label="Imágenes de Capital del Tango" class="relative bg-petroleo rounded-3xl overflow-hidden">
+        <section aria-label="Imágenes del Kartódromo" class="relative bg-petroleo rounded-3xl overflow-hidden">
             <div id="slides" class="h-56 md:h-96">
-                <img src="./imgs/tango-anfiteatro.jpg" alt="Anfiteatro Homero y Virgilio Expósito, en Plaza Italia"
+                <img src="./imgs/karting.png" alt="Kartódromo Internacional de Zárate"
                     class="slide w-full h-full object-cover text-white">
-                <img src="./imgs/tango-naranjos.jpg"
-                    alt="Estrofas de Naranjo en flor pintadas en carteles sobre el empedrado de la calle Dorrego"
+                <img src="./imgs/bizarrap-y-colapinto-1200x675.jpg"
+                    alt="Bizarrap y Colapinto en el Kartódromo"
+                    class="slide hidden w-full h-full object-cover text-white">
+                <img src="./imgs/franco.jpg" alt="Franco Colapinto en el Kartódromo"
+                    class="slide hidden w-full h-full object-cover text-white">
+                <img src="./imgs/circuito.png" alt="Circuito del Kartódromo"
                     class="slide hidden w-full h-full object-cover text-white">
             </div>
 
@@ -135,26 +136,28 @@
             <div class="md:max-w-3xl">
                 <div class="flex flex-wrap items-center gap-3">
                     <h1 class="font-titulo font-bold text-3xl md:text-4xl">
-                        Capital del Tango
+                        Kartódromo Internacional de Zárate
                     </h1>
                     <button id="ver-ubicacion" type="button"
                         class="text-sm underline text-azul foco-oscuro">
                         Ver ubicación
                     </button>
                 </div>
-                <p class="font-titulo font-semibold text-azul mt-1">Ciudad Provincial del Tango</p>
+                <p class="font-titulo font-semibold text-azul mt-1">Pista de go kart</p>
                 <p class="mt-2 leading-relaxed">
-                    Un recorrido por los lugares que le dan a Zárate su título de capital del tango y por la huella de
-                    los hermanos Homero y Virgilio Expósito, que nacieron acá.
+                    Se llevan a cabo campeonatos y eventos oficiales para pilotos, organizados por <a href="https://kartplus.com.ar/" target="_blank" rel="noopener"
+                        class="underline text-azul foco-oscuro">KartPlus</a>. Aunque también se ofrece el servicio de kartings de alquiler, los cuales alcanzan los 85 km/h 
+                        con motores de 13 hp, complementados por una de las mejores infraestructuras del país. Esta actividad está destinada a grupos familiares y de amigos.
                 </p>
-                <ul class="mt-3 text-sm space-y-1 list-disc pl-5">
-                    <li><strong>Cuna de artistas:</strong> vio nacer a músicos, compositores y poetas fundamentales del
-                        género.</li>
-                    <li><strong>Visitas históricas:</strong> pasaron por la ciudad Carlos Gardel, Osvaldo Pugliese y
-                        Roberto Goyeneche.</li>
-                    <li><strong>Reconocimiento legal:</strong> fue declarada Ciudad Provincial del Tango a fines de
-                        2009, por la Ley provincial N.° 14.091.</li>
-                </ul>
+                <p class="font-titulo font-semibold text-azul mt-1">Franco Colapinto en el Kartódromo de Zárate</p>
+                <p class="mt-2 leading-relaxed">
+                    El piloto argentino de Fórmula 1, Franco Colapinto, dio sus primeros pasos en el automovilismo en este kartódromo, donde comenzó a competir a los seis años. 
+                    En abril de 2026 regresó al circuito para disfrutar de unas jornadas de karting junto a amigos y su antiguo equipo, Acosta Racing, antes de su exhibición en Buenos Aires. 
+                    Su visita destacó la importancia de este lugar en su formación como piloto profesional. <a href="https://tn.com.ar/deportes/automovilismo/2026/04/22/colapinto-visito-un-kartodromo-en-zarate-antes-de-su-exhibicion-la-inedita-decision-que-tomaron-los-duenos/?outputType=amp&utm_source" target="_blank" rel="noopener"
+                        class="underline text-azul foco-oscuro">TN</a>.
+                        <a href="https://www.lanacion.com.ar/deportes/automovilismo/franco-colapinto-en-la-argentina-carrera-de-kartings-en-zarate-y-visita-al-equipo-que-lo-formo-nid21042026/?utm_source" target="_blank" rel="noopener"
+                        class="underline text-azul foco-oscuro">La Nación</a>.
+                </p>
             </div>
             <div class="mt-4 md:mt-0 md:shrink-0">
                 <button id="agregar-recorrido" type="button"
@@ -181,13 +184,11 @@
                     </button>
                 </h2>
                 <div class="panel hidden md:block mt-3 text-sm leading-relaxed space-y-3">
-                    <p><strong>Festival Provincial del Tango.</strong> Se hace todos los años en marzo, por el
-                        aniversario de la ciudad, con espectáculos de artistas locales e internacionales.</p>
-                    <p><strong>Anfiteatro Homero y Virgilio Expósito.</strong> Escenario al aire libre en Plaza Italia.
-                        Los espectáculos dependen de la agenda municipal.</p>
-                    <p><strong>Paseo de los Naranjos.</strong> Homenaje peatonal sobre el empedrado de la calle Dorrego,
-                        inspirado en el tango "Naranjo en flor". Las estrofas están pintadas en carteles con fileteado
-                        porteño del artista Carlos Núbile.</p>
+                    <p><strong>Alquiler de kartings.</strong> Viví la experiencia de correr en una pista profesional con 
+                        kartings que alcanzan los 85 km/h y motores de 13 hp. Ideal para disfrutar con amigos o familiares.</p>
+                    <p><strong>Carreras recreativas.</strong> La actividad incluye una vuelta de reconocimiento, tres de clasificación 
+                        y quince de carrera final, con cronometraje.</p>
+                    <p><strong>Campeonatos oficiales.</strong> El circuito también recibe competencias y eventos de karting organizados por Kart Plus.</p>
                 </div>
             </section>
 
@@ -202,21 +203,19 @@
                 <dl class="panel hidden md:block mt-3 text-sm leading-relaxed space-y-3">
                     <div>
                         <dt class="font-semibold">Ubicación</dt>
-                        <dd>Anfiteatro: Plaza Italia, Zárate.</dd>
-                        <dd>Paseo de los Naranjos: calle Dorrego, entre Pasaje Chaco y San Martín (barrio Villa Fox).
-                        </dd>
+                        <dd>Ruta 193, km 8,5, Zárate, Buenos Aires.</dd>
                     </div>
                     <div>
-                        <dt class="font-semibold">Horarios</dt>
-                        <dd>Son espacios al aire libre y se pueden visitar todo el día.</dd>
+                        <dt class="font-semibold">Horarios de Alquiler</dt>
+                        <dd>Viernes y sábados, de 17:00 a 23:00, con reserva previa.</dd>
                     </div>
                     <div>
-                        <dt class="font-semibold">Acceso</dt>
-                        <dd>Libre y gratuito.</dd>
+                        <dt class="font-semibold">Edad mínima</dt>
+                        <dd>16 años.</dd>
                     </div>
                     <div>
                         <dt class="font-semibold">Duración estimada</dt>
-                        <dd>De 1 a 1,5 horas para los dos puntos.</dd>
+                        <dd>Aproximadamente 30 minutos por turno, con unos 20 minutos en pista.</dd>
                     </div>
                 </dl>
             </section>
@@ -230,9 +229,13 @@
                     </button>
                 </h2>
                 <div class="panel hidden md:block mt-3 text-sm leading-relaxed space-y-3">
-                    <p>Llevá la cámara: el empedrado de la calle Dorrego tiene mucho arte urbano para fotografiar.</p>
-                    <p>Si querés ir al Festival del Tango, confirmá la fecha y la sede en la web de la Municipalidad. La
-                        entrada es gratuita.</p>
+                    <p>¡Animate a vivir la velocidad de cerca! Reservá tu turno con anticipación y llegá 30 minutos antes para recibir las 
+                        instrucciones de seguridad.</p>
+                    <p>Llevá pantalón largo y buzo, ya que son obligatorios para ingresar a la pista.</p>
+                    <p>Si te gusta el automovilismo, consultá también el calendario de competencias para ver carreras oficiales.
+                        <a href="https://kartplus.com.ar/calendario/" target="_blank" rel="noopener"
+                            class="underline text-azul foco-oscuro">Calendario 2026</a>
+                    </p>
                 </div>
             </section>
         </div>
@@ -242,33 +245,23 @@
             <h2 id="titulo-mapa" class="font-titulo font-bold text-2xl mb-3">Ubicación</h2>
             <div class="grid gap-4 md:grid-cols-2">
                 <div>
-                    <h3 class="font-semibold mb-2">Anfiteatro Homero y Virgilio Expósito</h3>
-                    <iframe title="Mapa del Anfiteatro Homero y Virgilio Expósito"
-                        src="https://www.google.com/maps?q=Anfiteatro+Homero+Exposito+Zarate&output=embed"
+                    <h3 class="font-semibold mb-2">Kartódromo Internacional de Zárate</h3>
+                    <iframe title="Mapa del Kartódromo Internacional de Zárate"
+                        src="https://www.google.com/maps?q=Kartódromo+Internacional+de+Zárate&output=embed"
                         class="w-full h-64 rounded-2xl border border-[#e7dcca]" loading="lazy"></iframe>
-                    <a href="https://maps.app.goo.gl/mmzfTr2zfyiK7aSG6" target="_blank" rel="noopener"
-                        class="inline-block mt-2 text-sm underline text-azul foco-oscuro">Abrir en Google Maps</a>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-2">Paseo de los Naranjos</h3>
-                    <iframe title="Mapa del Paseo de los Naranjos"
-                        src="https://www.google.com/maps?q=Paseo+de+los+Naranjos+Dorrego+Zarate&output=embed"
-                        class="w-full h-64 rounded-2xl border border-[#e7dcca]" loading="lazy"></iframe>
-                    <a href="https://maps.app.goo.gl/pgXEe1VwqqDT1pQn7" target="_blank" rel="noopener"
+                    <a href="https://maps.app.goo.gl/d4icrXv6ywJDTNBv5" target="_blank" rel="noopener"
                         class="inline-block mt-2 text-sm underline text-azul foco-oscuro">Abrir en Google Maps</a>
                 </div>
             </div>
         </section>
 
         <nav class="mt-10 flex flex-wrap gap-3 justify-between" aria-label="Otras paradas">
-            <a href="costanera.html"
+            <a href="teatro-coliseo.html"
                 class="boton-nav foco-oscuro">&larr;
-                Paseo Costanera</a>
+                Teatro Coliseo</a>
             <a href="index.html#lugares"
                 class="boton-principal foco-oscuro">Volver al
-                recorrido</a>
-            <a href="quinta-jovita.html"
-                class="boton-nav foco-oscuro">Teatro Coliseo &rarr;</a>
+                inicio</a>
         </nav>
     </main>
 
