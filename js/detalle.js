@@ -24,6 +24,7 @@ document.addEventListener('keydown', function (e) {
 // carrusel
 var slides = document.querySelectorAll('.slide');
 var contenedorPuntos = document.getElementById('puntos');
+var pieImagen = document.getElementById('pie-imagen');
 var actual = 0;
 
 for (var i = 0; i < slides.length; i++) {
@@ -45,6 +46,7 @@ function mostrar(n) {
         slides[i].classList.toggle('hidden', i !== actual);
         puntos[i].classList.toggle('bg-white', i === actual);
     }
+    pieImagen.textContent = slides[actual].dataset.pie;
 }
 
 document.getElementById('anterior').addEventListener('click', function () { mostrar(actual - 1); });

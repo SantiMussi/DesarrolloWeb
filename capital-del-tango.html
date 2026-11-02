@@ -111,14 +111,22 @@
         <!-- carrusel -->
         <section aria-label="Imágenes de Capital del Tango" class="relative bg-petroleo rounded-3xl overflow-hidden">
             <div id="slides" class="h-56 md:h-96">
-                <img src="imgs/capital-tango.png" alt="Pareja bailando tango"
+                <img src="imgs/capital-tango.png"
+                    alt="Pareja bailando tango en una plaza arbolada, ella de vestido rojo y él de saco claro"
+                    data-pie="El tango se baila en las plazas y en la calle. Imagen ilustrativa."
                     class="slide w-full h-full object-cover text-white">
-                <img src="imgs/anfiteatro.jpg" alt=" Imagen anfiteatro Homero y Virgilio Exposito"
+                <img src="imgs/anfiteatro.jpg"
+                    alt="Escenario del Anfiteatro Homero y Virgilio Expósito, con su techo de estructura metálica y las gradas a un costado"
+                    data-pie="El Anfiteatro Homero y Virgilio Expósito, en Plaza Italia: escenario al aire libre con gradas para el público."
                     class="slide hidden w-full h-full object-cover text-white">
-                <img src="imgs/anfiteatro2.png" alt="Imagen anfiteatro Homero y Virgilio Exposito"
+                <img src="imgs/anfiteatro2.png"
+                    alt="Las gradas y la plaza arbolada vistas desde el escenario del anfiteatro"
+                    data-pie="Lo que se ve desde el escenario del anfiteatro: las gradas y la plaza con árboles."
                     class="slide hidden w-full h-full object-cover text-white">
-                <img src="imgs/paseo-naranjo.png" alt="Imagen Paseo de los Naranjos"
-                    class="slide hidden w-full h-full object-cover text-white">    
+                <img src="imgs/paseo-naranjo.png"
+                    alt="Cartel del Paseo de los Naranjos con marco de fileteado, sobre la calle empedrada"
+                    data-pie="Cartel del Paseo de los Naranjos, sobre el empedrado de la calle Dorrego. Recuerda el tango «Naranjo en flor», de Virgilio y Homero Expósito."
+                    class="slide hidden w-full h-full object-cover text-white">
             </div>
 
 
@@ -129,6 +137,7 @@
 
             <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2" id="puntos"></div>
         </section>
+        <p id="pie-imagen" class="mt-2 text-sm text-gray-700" aria-live="polite"></p>
 
         <!-- titulo y boton de ubicacion -->
         <div class="mt-6 md:flex md:items-start md:justify-between md:gap-6">
