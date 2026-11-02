@@ -55,15 +55,14 @@
                     <li><a href="index.html" class="hover:underline foco">Inicio</a></li>
                     <li><a href="paseo-costanera.html" aria-current="page"
                             class="font-semibold text-amarillo underline underline-offset-4 foco">Paseo Costanera</a></li>
-                    <li><a href="capital-del-tango.html" aria-current="page"
-                            class="font-semibold text-amarillo underline underline-offset-4 foco">Capital del Tango</a></li>
+                    <li><a href="capital-del-tango.html" class="hover:underline foco">Capital del Tango</a></li>
                     <li><a href="teatro-coliseo.html" class="hover:underline foco">Teatro Coliseo</a></li>
                     <li><a href="kartodromo.html" class="hover:underline foco">Kartódromo</a></li>
                     <li class="ml-4 border-l border-white/40 pl-5">
-                        <button id="ver-carrito" type="button"
-                            class="w-36 text-left whitespace-nowrap font-semibold hover:underline foco">
+                        <a href="mi-carrito.html"
+                            class="inline-block w-36 text-left whitespace-nowrap font-semibold hover:underline foco">
                             Mi carrito
-                        </button>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -98,16 +97,27 @@
                 <li><a href="teatro-coliseo.html" class="block py-2 foco">Teatro Coliseo</a></li>
                 <li><a href="kartodromo.html" class="block py-2 foco">Kartódromo Internacional</a></li>
                 <li class="border-t border-white/40">
-                    <button id="ver-carrito-celu" type="button"
+                    <a href="mi-carrito.html"
                         class="block py-3 font-semibold foco">
                         Mi carrito
-                    </button>
+                    </a>
                 </li>
             </ul>
         </div>
     </div>
 
     <main id="contenido" class="flex-1 max-w-6xl w-full mx-auto px-5 py-5 md:py-8">
+        <div class="flex w-full items-center justify-between gap-4 mb-4">
+            <a href="index.html"
+                class="text-sm font-semibold text-azul hover:underline foco-oscuro">
+                &larr; Volver al inicio
+            </a>
+
+            <a href="capital-del-tango.html"
+                class="text-sm font-semibold text-azul hover:underline foco-oscuro">
+                Capital del Tango &rarr;
+            </a>
+        </div>
 
         <!-- carrusel -->
         <section aria-label="Imágenes de Capital del Tango" class="relative bg-petroleo rounded-3xl overflow-hidden">
@@ -154,15 +164,10 @@
                 </ul>
             </div>
             <div class="mt-4 md:mt-0 md:shrink-0">
-                <button id="agregar-recorrido" type="button"
-                    aria-pressed="false"
-                    class="bg-azul text-white font-semibold rounded-2xl px-5 py-3 hover:brightness-110 foco-oscuro">
-                    Agregar al carrito
-                </button>
-
-                <p id="mensaje-recorrido"
-                    role="status"
-                    class="mt-2 text-sm md:max-w-56"></p>
+                <a href="mi-carrito.html"
+                    class="inline-block bg-azul text-white font-semibold rounded-2xl px-5 py-3 hover:brightness-110 foco-oscuro">
+                    Armar mi experiencia
+                </a>
             </div>
         </div>
 
@@ -232,20 +237,13 @@
                 <div>
                     <h3 class="font-semibold mb-2">Paseo Costanera</h3>
                     <iframe title="Mapa del Paseo Costanera"
-                        src="https://www.google.com/maps?q=-34.0994366,-59.012082&z=16&output=embed"
+                        src="https://www.google.com/maps?q=Costanera+Zarate+Parque+Costanera+Luis+Rocha&output=embed"
                         class="w-full h-64 rounded-2xl border border-[#e7dcca]" loading="lazy"></iframe>
-                    <a href=https://maps.app.goo.gl/YZTVsEduDgPb5frNA target="_blank" rel="noopener"
+                    <a href=https://maps.app.goo.gl/B1tfyw5aTo9g9WKN9 target="_blank" rel="noopener"
                         class="inline-block mt-2 text-sm underline text-azul foco-oscuro">Abrir en Google Maps</a>
                 </div>
             </div>
         </section>
-
-        <nav class="mt-10 flex flex-wrap gap-3 justify-between" aria-label="Otras paradas">
-            <a href="index.html#lugares"
-                class="boton-principal foco-oscuro">Volver al inicio</a>
-            <a href="capital-del-tango.html"
-                class="boton-nav foco-oscuro">Capital del tango &rarr;</a>
-        </nav>
     </main>
 
     <footer class="bg-petroleo text-white text-xs">

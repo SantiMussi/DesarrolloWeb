@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi carrito - Rutas Zárate</title>
+    <meta name="description"
+        content="Elegí actividades, calculá el costo y armá tu itinerario por Zárate.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="css/componentes.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petroleo: '#073d4f',
+                        azul: '#2f6a82',
+                        crema: '#fff7e8',
+                        texto: '#123d4d',
+                        verde: '#cfe8d6',
+                        celeste: '#daedf3',
+                        amarillo: '#f6d56b'
+                    },
+                    fontFamily: {
+                        titulo: ['Poppins', 'sans-serif'],
+                        cuerpo: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-crema text-texto font-cuerpo min-h-screen flex flex-col">
+
+    <header class="bg-petroleo text-white">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+
+            <a href="index.html#lugares" class="md:hidden font-titulo font-semibold foco">&lsaquo; Volver</a>
+            <a href="index.html" class="hidden md:block foco">
+                <img src="./imgs/logo1.png" alt="Rutas Zárate, ir al inicio" class="w-32">
+            </a>
+
+            <nav class="hidden md:block" aria-label="Principal">
+                <ul class="flex gap-6 text-sm">
+                    <li><a href="index.html" class="hover:underline foco">Inicio</a></li>
+                    <li><a href="paseo-costanera.html" class="hover:underline foco">Paseo Costanera</a></li>
+                    <li><a href="capital-del-tango.html"
+                            class="hover:underline foco">Capital del Tango</a></li>
+                    <li><a href="teatro-coliseo.html" class="hover:underline foco">Teatro Coliseo</a></li>
+                    <li><a href="kartodromo.html" class="hover:underline foco">Kartódromo</a></li>
+                    <li class="ml-4 border-l border-white/40 pl-5">
+                        <a href="mi-carrito.html" aria-current="page" class="inline-block w-36 text-left whitespace-nowrap font-semibold text-amarillo underline underline-offset-4 foco">Mi carrito<span id="contador-carrito"></span></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button id="abrir-menu" type="button" aria-label="Abrir menú" aria-expanded="false"
+                class="md:hidden p-1 foco">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="menu-celu" class="hidden fixed inset-0 z-40 bg-black/60 md:hidden">
+        <div class="bg-petroleo text-white rounded-3xl m-5 p-6">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-titulo font-bold">Rutas Zárate</span>
+                <button id="cerrar-menu" type="button" aria-label="Cerrar menú" class="p-1 foco">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M5 5l14 14M19 5L5 19" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="space-y-1">
+                <li><a href="index.html" class="block py-2 foco">Inicio</a></li>
+                <li><a href="paseo-costanera.html" class="block py-2 foco">Paseo Costanera Zárate</a></li>
+                <li><a href="capital-del-tango.html"
+                        class="block py-2 foco">Ciudad Capital del Tango</a></li>
+                <li><a href="teatro-coliseo.html" class="block py-2 foco">Teatro Coliseo</a></li>
+                <li><a href="kartodromo.html" class="block py-2 foco">Kartódromo Internacional</a></li>
+                <li class="border-t border-white/40">
+                    <a href="mi-carrito.html" aria-current="page" class="block py-3 font-semibold text-amarillo foco">Mi carrito<span id="contador-carrito-celu"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<main id="contenido" class="flex-1 max-w-6xl w-full mx-auto px-5 py-6 md:py-10">
+    <a href="index.html#lugares" class="inline-block text-sm font-semibold text-azul hover:underline foco-oscuro">
+        &larr; Seguir explorando Zárate
+    </a>
+
+    <div class="mt-7 mb-8 max-w-2xl">
+        <p class="text-azul font-semibold text-sm uppercase tracking-widest">Mi carrito</p>
+        <h1 class="font-titulo font-bold text-3xl md:text-5xl mt-3 leading-tight">Tu día en Zárate,<br>a tu manera.</h1>
+        <p class="mt-4 leading-relaxed">Combiná paseos, cultura y aventura. Elegí qué te interesa y te mostramos un itinerario con el tiempo de actividades y el costo para tu grupo.</p>
+    </div>
+
+    <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-7 border-b border-azul/20 pb-5">
+        <p><strong>01.</strong> Elegí tus actividades</p>
+        <p><strong>02.</strong> Revisá el itinerario</p>
+        <p><strong>03.</strong> Confirmá tu solicitud</p>
+    </div>
+
+    <form id="formulario-experiencia" aria-describedby="ayuda-actividades">
+        <div class="grid gap-7 lg:grid-cols-3 items-start">
+            <div class="lg:col-span-2">
+                <fieldset>
+                    <legend class="font-titulo font-bold text-2xl">¿Qué querés hacer?</legend>
+                    <p id="ayuda-actividades" class="text-sm mt-2 mb-5">Seleccioná al menos una actividad. Para quitarla, destildala.</p>
+
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3 md:gap-4 bg-white border border-[#e7dcca] rounded-2xl p-4 cursor-pointer hover:border-azul">
+                            <input id="actividad-costanera" type="checkbox" aria-describedby="ayuda-actividades" class="w-5 h-5 mt-1 shrink-0 accent-azul foco-oscuro">
+                            <img src="imgs/paseo-costanera.jpg" alt="" class="hidden sm:block w-20 h-24 rounded-xl object-cover">
+                            <span class="flex-1">
+                                <span class="block text-xs uppercase tracking-wider text-azul font-semibold">Aire libre</span>
+                                <strong class="block font-titulo mt-1">Paseo por la Costanera</strong>
+                                <span class="block text-sm mt-1">Río, paisaje y una pausa para disfrutar Zárate.</span>
+                                <span class="block text-sm mt-3"><strong>Gratis</strong> &middot; 60 min estimados</span>
+                            </span>
+                        </label>
+
+                        <label class="flex items-start gap-3 md:gap-4 bg-white border border-[#e7dcca] rounded-2xl p-4 cursor-pointer hover:border-azul">
+                            <input id="actividad-naranjos" type="checkbox" class="w-5 h-5 mt-1 shrink-0 accent-azul foco-oscuro">
+                            <img src="imgs/paseo-naranjos.png" alt="" class="hidden sm:block w-20 h-24 rounded-xl object-cover">
+                            <span class="flex-1">
+                                <span class="block text-xs uppercase tracking-wider text-azul font-semibold">Capital del Tango</span>
+                                <strong class="block font-titulo mt-1">Paseo de los Naranjos</strong>
+                                <span class="block text-sm mt-1">Una caminata entre versos y homenajes al tango.</span>
+                                <span class="block text-sm mt-3"><strong>Gratis</strong> &middot; 45 min estimados</span>
+                            </span>
+                        </label>
+
+                        <label class="flex items-start gap-3 md:gap-4 bg-white border border-[#e7dcca] rounded-2xl p-4 cursor-pointer hover:border-azul">
+                            <input id="actividad-anfiteatro" type="checkbox" class="w-5 h-5 mt-1 shrink-0 accent-azul foco-oscuro">
+                            <img src="imgs/anfiteatro.jpg" alt="" class="hidden sm:block w-20 h-24 rounded-xl object-cover">
+                            <span class="flex-1">
+                                <span class="block text-xs uppercase tracking-wider text-azul font-semibold">Capital del Tango</span>
+                                <strong class="block font-titulo mt-1">Anfiteatro Homero y Virgilio Expósito</strong>
+                                <span class="block text-sm mt-1">Conocé este espacio de homenaje a los hermanos Expósito.</span>
+                                <span class="block text-sm mt-3"><strong>Gratis</strong> &middot; 30 min estimados</span>
+                            </span>
+                        </label>
+
+                        <div class="flex flex-col md:flex-row md:items-center gap-4 bg-white border border-[#e7dcca] rounded-2xl p-4">
+
+                            <label class="flex items-start gap-3 flex-1 min-w-0 cursor-pointer">
+                                <input id="actividad-teatro" type="checkbox"
+                                    class="w-5 h-5 mt-1 shrink-0 accent-azul foco-oscuro">
+
+                                <img src="imgs/coliseo2.png" alt=""
+                                    class="hidden sm:block w-20 h-24 rounded-xl object-cover">
+
+                                <span class="flex-1">
+                                    <span class="block text-xs uppercase tracking-wider text-azul font-semibold">
+                                        Cultura
+                                    </span>
+
+                                    <strong class="block font-titulo mt-1">
+                                        Función en el Teatro Coliseo
+                                    </strong>
+
+                                    <span class="block text-sm mt-1">
+                                        Una entrada por persona. Función a coordinar según cartelera.
+                                    </span>
+
+                                    <span class="block text-sm mt-3">
+                                        <strong>$ 5000 por persona</strong> · 90 min estimados
+                                    </span>
+                                </span>
+                            </label>
+
+                            <div id="opciones-teatro"
+                                style="display: none;"
+                                class="md:w-28 md:shrink-0">
+
+                                <label for="cantidad-teatro"
+                                    class="block text-sm font-semibold">
+                                    Personas
+                                </label>
+
+                                <input id="cantidad-teatro" name="cantidad-teatro"
+                                    type="number" min="1" step="1" value="1"
+                                    required disabled
+                                    class="mt-2 w-24 rounded-lg border border-azul p-3 foco-oscuro">
+                            </div>
+
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-center gap-4 bg-white border border-[#e7dcca] rounded-2xl p-4">
+
+                            <label class="flex items-start gap-3 flex-1 min-w-0 cursor-pointer">
+                                <input id="actividad-karting" type="checkbox"
+                                    class="w-5 h-5 mt-1 shrink-0 accent-azul foco-oscuro">
+
+                                <img src="imgs/kartodromo1.png" alt=""
+                                    class="hidden sm:block w-20 h-24 rounded-xl object-cover">
+
+                                <span class="flex-1">
+                                    <span class="block text-xs uppercase tracking-wider text-azul font-semibold">
+                                        Aventura
+                                    </span>
+
+                                    <strong class="block font-titulo mt-1">
+                                        Experiencia de karting
+                                    </strong>
+
+                                    <span class="block text-sm mt-1">
+                                        Un turno por persona. Aproximadamente 20 minutos en pista.
+                                    </span>
+
+                                    <span class="block text-sm mt-3">
+                                        <strong>$ 15000 por persona</strong> · 30 min con preparación
+                                    </span>
+
+                                    <span class="block text-xs mt-1">
+                                        Desde 16 años.
+                                    </span>
+                                </span>
+                            </label>
+
+                            <div id="opciones-karting"
+                                style="display: none;"
+                                class="md:w-28 md:shrink-0">
+
+                                <label for="cantidad-karting"
+                                    class="block text-sm font-semibold">
+                                    Personas
+                                </label>
+
+                                <input id="cantidad-karting" name="cantidad-karting"
+                                    type="number" min="1" step="1" value="1"
+                                    required disabled
+                                    class="mt-2 w-24 rounded-lg border border-azul p-3 foco-oscuro">
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="mt-7 bg-white border border-[#e7dcca] rounded-2xl p-5 md:p-6">
+                    <legend class="font-titulo font-bold text-xl px-1">Datos de quien organiza</legend>
+                    <p class="text-sm mb-5">Completá tus datos de contacto para revisar la solicitud.</p>
+                    <p class="text-sm mb-4">
+                        Los campos con * son obligatorios.
+                    </p>
+
+                    <label for="nombre" class="block text-sm font-semibold">
+                        Nombre y apellido *
+                    </label>
+
+                    <input id="nombre" name="nombre" type="text"
+                        autocomplete="name" required
+                        class="mt-2 w-full rounded-xl border border-azul p-3 foco-oscuro" aria-describedby="error-nombre">
+                        <p id="error-nombre" role="alert"
+                            class="mt-2 text-sm font-semibold text-red-700"></p>
+
+                    <label for="correo" class="block text-sm font-semibold mt-5">
+                        Correo electrónico de Gmail *
+                    </label>
+
+                    <p id="ayuda-correo" class="text-sm mt-1">
+                        Escribí solo la parte anterior a @gmail.com.
+                    </p>
+
+                    <div class="flex items-center mt-2 rounded-xl border border-azul bg-white">
+                        <input id="correo" name="correo" type="text"
+                            required
+                            pattern="[A-Za-z0-9]+([.][A-Za-z0-9]+)*"
+                            title="Ingresá letras, números y puntos entre palabras, sin espacios ni @gmail.com."
+                            aria-describedby="ayuda-correo error-correo"
+                            autocapitalize="none"
+                            spellcheck="false"
+                            class="min-w-0 flex-1 rounded-l-xl p-3 bg-transparent foco-oscuro">
+
+                        <span class="shrink-0 px-3 text-sm text-azul">
+                            @gmail.com
+                        </span>
+                    </div>
+                    <p id="error-correo" role="alert"
+                        class="mt-2 text-sm font-semibold text-red-700"></p>
+
+                    <label for="telefono" class="block text-sm font-semibold mt-5">
+                        Número de teléfono *
+                    </label>
+                    <p id="ayuda-telefono" class="text-sm mt-1">
+                        Escribí entre 8 y 15 números, sin espacios ni guiones.
+                        Podés comenzar con +.
+                    </p>
+
+                    <input id="telefono" name="telefono" type="tel"
+                        autocomplete="tel" required
+                        class="mt-2 w-full rounded-xl border border-azul p-3 foco-oscuro" aria-describedby="ayuda-telefono error-telefono"
+                        pattern="[+]?[0-9]{8,15}" title="Usá entre 8 y 15 números, sin espacios ni guiones. 
+                        Podés comenzar con +.">
+                    <p id="error-telefono" role="alert"
+                        class="mt-2 text-sm font-semibold text-red-700"></p>
+
+                    <p class="text-sm mt-4">La fecha, la función y los turnos se coordinan según disponibilidad antes de confirmar una reserva.</p>
+                </fieldset>
+            </div>
+
+            <aside class="lg:sticky lg:top-6 bg-petroleo text-white rounded-2xl p-6" aria-labelledby="titulo-seleccion">
+                <p class="text-xs uppercase tracking-widest text-celeste">Tu experiencia</p>
+                <h2 id="titulo-seleccion" class="font-titulo font-bold text-2xl mt-2">Un plan que va con vos.</h2>
+                <p id="cantidad-seleccionada" class="mt-5 text-sm">Todavía no elegiste actividades.</p>
+                <dl class="mt-6 space-y-4 text-sm">
+                    <div class="flex justify-between gap-3">
+                        <dt>Teatro</dt>
+                        <dd id="detalle-teatro" class="text-right">
+                            No seleccionado
+                        </dd>
+                    </div>
+
+                    <div class="flex justify-between gap-3">
+                        <dt>Karting</dt>
+                        <dd id="detalle-karting" class="text-right">
+                            No seleccionado
+                        </dd>
+                    </div>
+
+                    <div class="flex justify-between gap-3">
+                        <dt>Tiempo de actividades</dt>
+                        <dd id="duracion-seleccion" class="text-right">
+                            0 minutos
+                        </dd>
+                    </div>
+
+                    <div class="border-t border-white/25 pt-5">
+                        <dt class="text-celeste">Total</dt>
+                        <dd id="total-seleccion"
+                            class="font-titulo font-bold text-3xl mt-2">
+                            $ 0
+                        </dd>
+                    </div>
+                </dl>
+                <p class="text-xs text-celeste mt-4">Los paseos gratuitos seleccionados no suman cargos.</p>
+                <p id="error-formulario" role="alert" class="font-semibold text-amarillo mt-5"></p>
+                <button type="submit" class="boton-principal w-full mt-5 text-center foco">Revisar mi itinerario &rarr;</button>
+                <p class="text-xs text-celeste mt-3 text-center">Podés modificarlo antes de confirmar.</p>
+                <p id="estado-calculo" role="status" class="sr-only"></p>
+            </aside>
+        </div>
+    </form>
+
+    <section id="resumen" style="display: none;" aria-labelledby="titulo-resumen">
+        <div class="bg-white border border-[#e7dcca] rounded-2xl p-5 md:p-8">
+            <p class="text-azul font-semibold text-xs uppercase tracking-widest">Tu selección, organizada</p>
+            <h2 id="titulo-resumen" tabindex="-1" class="font-titulo font-bold text-3xl mt-3 foco-oscuro">Tu recorrido por Zárate</h2>
+            <ol class="list-decimal pl-6 mt-8 space-y-5">
+                <li id="paso-teatro" style="display: none;" class="pl-2">
+                    <h3 class="font-titulo font-bold">Función en el Teatro Coliseo</h3>
+                    <p class="text-sm mt-1">90 minutos estimados &middot; $ 5000 por persona.</p>
+                    <p id="resumen-teatro" class="text-sm mt-2 font-semibold"></p>
+                    <p class="text-sm mt-1">La función y el horario se coordinan según cartelera y disponibilidad.</p>
+                </li>
+                <li id="paso-anfiteatro" style="display: none;" class="pl-2">
+                    <h3 class="font-titulo font-bold">Anfiteatro Homero y Virgilio Expósito</h3>
+                    <p class="text-sm mt-1">30 minutos estimados &middot; Gratis.</p>
+                    <p class="text-sm mt-1">Conocé el espacio dedicado a los hermanos Expósito en Plaza Italia.</p>
+                </li>
+                <li id="paso-costanera" style="display: none;" class="pl-2">
+                    <h3 class="font-titulo font-bold">Paseo por la Costanera</h3>
+                    <p class="text-sm mt-1">60 minutos estimados &middot; Gratis.</p>
+                    <p class="text-sm mt-1">Reservá un momento para caminar y disfrutar las vistas.</p>
+                </li>
+                <li id="paso-naranjos" style="display: none;" class="pl-2">
+                    <h3 class="font-titulo font-bold">Paseo de los Naranjos</h3>
+                    <p class="text-sm mt-1">45 minutos estimados &middot; Gratis.</p>
+                    <p class="text-sm mt-1">Recorré el homenaje al tango y sus versos.</p>
+                </li>
+                <li id="paso-karting" style="display: none;" class="pl-2">
+                    <h3 class="font-titulo font-bold">Experiencia de karting</h3>
+                    <p class="text-sm mt-1">30 minutos con preparación &middot; $ 15000 por persona.</p>
+                    <p id="resumen-karting" class="text-sm mt-2 font-semibold"></p>
+                    <p class="text-sm mt-1">Confirmá los requisitos del grupo y llegá con la anticipación indicada por el lugar.</p>
+                </li>
+            </ol>
+
+            <div class="mt-7 border-t border-azul/20 pt-5">
+                <h3 class="font-titulo font-bold text-lg">Mapa de las paradas</h3>
+                <label for="parada-mapa" class="block text-sm font-semibold mt-4">
+                    Ver ubicación de
+                </label>
+                <select id="parada-mapa"
+                    class="mt-2 w-full sm:w-auto sm:max-w-full rounded-xl border border-azul bg-white p-3 foco-oscuro">
+                    <option id="opcion-teatro" value="Teatro+Coliseo+19+de+Marzo+314+Zarate+Buenos+Aires">Teatro Coliseo</option>
+                    <option id="opcion-anfiteatro" value="Anfiteatro+Homero+Exposito+Plaza+Italia+Zarate+Buenos+Aires">Anfiteatro Homero y Virgilio Expósito</option>
+                    <option id="opcion-costanera" value="Parque+Costanera+Luis+Rocha+Zarate+Buenos+Aires">Paseo por la Costanera</option>
+                    <option id="opcion-naranjos" value="Paseo+de+los+Naranjos+Dorrego+Zarate+Buenos+Aires">Paseo de los Naranjos</option>
+                    <option id="opcion-karting" value="Kartodromo+Internacional+de+Zarate+Ruta+193+km+8.5">Kartódromo Internacional de Zárate</option>
+                </select>
+                <iframe id="vista-mapa" title="Mapa de la parada seleccionada"
+                    src="about:blank" loading="lazy" allowfullscreen
+                    class="mt-4 w-full h-72 md:h-96 rounded-2xl border border-[#e7dcca]"></iframe>
+                <a id="abrir-mapa" href="https://www.google.com/maps"
+                    target="_blank" rel="noopener"
+                    class="inline-block mt-4 boton-nav foco-oscuro">
+                    Ver recorrido en Google Maps
+                </a>
+            </div>
+
+            <dl class="grid gap-5 sm:grid-cols-2 mt-8 pt-6 border-t border-azul/20">
+                <div><dt class="text-sm text-azul">Organiza</dt><dd id="resumen-nombre" class="font-semibold mt-1 break-words"></dd></div>
+                <div><dt class="text-sm text-azul">Correo de contacto</dt><dd id="resumen-correo" class="font-semibold mt-1 break-words"></dd></div>
+                <div>
+                    <dt class="text-sm text-azul">Teléfono de contacto</dt>
+                    <dd id="resumen-telefono"
+                        class="font-semibold mt-1 break-words"></dd>
+                </div>
+                <div><dt class="text-sm text-azul">Tiempo estimado</dt><dd id="resumen-duracion" class="font-semibold mt-1"></dd></div>
+            </dl>
+            <div class="mt-7 bg-celeste rounded-xl p-5">
+                <p class="text-sm">Total en pesos argentinos</p>
+                <p id="resumen-total" class="font-titulo text-3xl font-bold mt-1"></p>
+            </div>
+            <div id="acciones-resumen" class="flex flex-col sm:flex-row gap-3 mt-7">
+                <button id="modificar" type="button" class="boton-nav foco-oscuro">&larr; Modificar mi selección</button>
+                <button id="confirmar-solicitud" type="button" class="boton-principal foco-oscuro">Confirmar solicitud</button>
+            </div>
+
+            <section id="pago" style="display: none;" class="mt-7 border border-azul/30 rounded-2xl p-5 md:p-6" aria-labelledby="titulo-pago">
+                <h3 id="titulo-pago" tabindex="-1" class="font-titulo font-bold text-xl foco-oscuro">Medio de pago</h3>
+                <p id="ayuda-pago" class="text-sm mt-2">Elegí cómo querés pagar tu experiencia.</p>
+                <p class="mt-5 text-sm">Importe a pagar</p>
+                <p id="importe-pago" class="font-titulo font-bold text-3xl mt-1"></p>
+                <label for="metodo-pago" class="block font-semibold text-sm mt-5">Medio de pago *</label>
+                <select id="metodo-pago" required aria-describedby="ayuda-pago error-pago"
+                    class="mt-2 w-full sm:w-auto rounded-xl border border-azul bg-white p-3 foco-oscuro">
+                    <option value="">Elegí un medio de pago</option>
+                    <option value="Mercado Pago">Mercado Pago</option>
+                    <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                    <option value="Tarjeta de débito">Tarjeta de débito</option>
+                </select>
+                <p id="error-pago" role="alert" class="mt-2 text-sm font-semibold text-red-700"></p>
+                <div class="flex flex-col sm:flex-row gap-3 mt-5">
+                    <button id="volver-resumen" type="button" class="boton-nav foco-oscuro">&larr; Volver al resumen</button>
+                    <button id="confirmar-pago" type="button" class="boton-principal foco-oscuro">Confirmar solicitud</button>
+                </div>
+            </section>
+
+            <section id="confirmacion" style="display: none;" class="bg-verde rounded-2xl p-5 md:p-6 mt-7" aria-labelledby="titulo-confirmacion">
+                <h3 id="titulo-confirmacion" tabindex="-1" class="font-titulo font-bold text-xl foco-oscuro">¡Tu experiencia está armada!</h3>
+                <p id="resultado-pago" class="mt-3 font-semibold"></p>
+                <p class="mt-3">Nos pondremos en contacto por correo electrónico o teléfono para enviarte la información de tu recorrido y coordinar los detalles.</p>
+                <a href="mi-carrito.html" class="inline-block underline font-semibold mt-5 foco-oscuro">Armar otra experiencia</a>
+            </section>
+        </div>
+    </section>
+</main>
+
+    <footer class="bg-petroleo text-white text-xs">
+        <div class="max-w-6xl mx-auto px-5 py-4">
+            Grupo 10: Agostino Lucía, Maestri Paula, Mussi Santiago, Peduto Lautaro
+        </div>
+    </footer>
+    <script src="js/navbar.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>

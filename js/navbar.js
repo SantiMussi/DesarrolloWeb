@@ -36,3 +36,15 @@ if (header.hasAttribute('data-transparente')) {
     window.addEventListener('scroll', revisarScroll);
     revisarScroll();
 }
+
+let botonRecorrido = document.getElementById('ver-recorrido');
+let seccionLugares = document.getElementById('lugares');
+
+if (botonRecorrido !== null) {
+    botonRecorrido.addEventListener('click', function (evento) {
+        evento.preventDefault();
+
+        seccionLugares.focus({ preventScroll: true });
+        seccionLugares.scrollIntoView({ behavior: 'smooth' });
+    });
+}
