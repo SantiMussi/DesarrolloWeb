@@ -2,6 +2,7 @@ let cantidad = 0;
 let minutos = 0;
 let total = 0;
 let cantidadesValidas = true;
+let finalizada = false;
 
 let precioTeatro = 5000;
 let precioKarting = 15000;
@@ -22,10 +23,25 @@ let error = document.getElementById('error-formulario');
 let pago = document.getElementById('pago');
 let metodoPago = document.getElementById('metodo-pago');
 
+function escribirResumen(id, texto) {
+    // el comprobante no se modifica despues de finalizar
+    if (finalizada === false) {
+        document.getElementById(id).textContent = texto;
+    }
+}
+
 function sumarActividad(casilla, paso, duracion) {
     if (casilla.checked === true) {
         cantidad = cantidad + 1;
         minutos = minutos + duracion;
+    }
+
+    // una vez finalizada la solicitud, el resumen queda como comprobante
+    if (finalizada === true) {
+        return;
+    }
+
+    if (casilla.checked === true) {
         document.getElementById(paso).style.display = 'list-item';
     } else {
         document.getElementById(paso).style.display = 'none';
@@ -54,17 +70,17 @@ function calcular() {
             let subtotalTeatro = personasTeatro * precioTeatro;
             total = total + subtotalTeatro;
             document.getElementById('detalle-teatro').textContent = personasTeatro + ' entrada(s) · $ ' + subtotalTeatro;
-            document.getElementById('resumen-teatro').textContent = personasTeatro + ' entrada(s). Subtotal: $ ' + subtotalTeatro + '.';
+            escribirResumen('resumen-teatro', personasTeatro + ' entrada(s). Subtotal: $ ' + subtotalTeatro + '.');
         } else {
             cantidadesValidas = false;
             document.getElementById('detalle-teatro').textContent = 'Revisá la cantidad de entradas.';
-            document.getElementById('resumen-teatro').textContent = '';
+            escribirResumen('resumen-teatro', '');
         }
     } else {
         document.getElementById('opciones-teatro').style.display = 'none';
         campoTeatro.disabled = true;
         document.getElementById('detalle-teatro').textContent = 'No seleccionado';
-        document.getElementById('resumen-teatro').textContent = '';
+        escribirResumen('resumen-teatro', '');
     }
 
     if (karting.checked === true) {
@@ -76,17 +92,17 @@ function calcular() {
             let subtotalKarting = personasKarting * precioKarting;
             total = total + subtotalKarting;
             document.getElementById('detalle-karting').textContent = personasKarting + ' participante(s) · $ ' + subtotalKarting;
-            document.getElementById('resumen-karting').textContent = personasKarting + ' participante(s). Subtotal: $ ' + subtotalKarting + '.';
+            escribirResumen('resumen-karting', personasKarting + ' participante(s). Subtotal: $ ' + subtotalKarting + '.');
         } else {
             cantidadesValidas = false;
             document.getElementById('detalle-karting').textContent = 'Revisá la cantidad de participantes.';
-            document.getElementById('resumen-karting').textContent = '';
+            escribirResumen('resumen-karting', '');
         }
     } else {
         document.getElementById('opciones-karting').style.display = 'none';
         campoKarting.disabled = true;
         document.getElementById('detalle-karting').textContent = 'No seleccionado';
-        document.getElementById('resumen-karting').textContent = '';
+        escribirResumen('resumen-karting', '');
     }
 
     if (cantidad === 0) {
@@ -222,6 +238,12 @@ function finalizarSolicitud() {
 
     document.getElementById('confirmacion').style.display = 'block';
     document.getElementById('titulo-confirmacion').focus();
+
+    // se vacia el carrito para poder armar otra experiencia
+    finalizada = true;
+    formulario.reset();
+    metodoPago.value = '';
+    calcular();
 }
 
 // si viene de una pagina de lugar, deja marcadas sus actividades
