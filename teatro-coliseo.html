@@ -124,15 +124,23 @@
         </div>
 
         <!-- carrusel -->
-        <section aria-label="Imágenes de Capital del Tango" class="relative bg-petroleo rounded-3xl overflow-hidden">
+        <section aria-label="Imágenes del Teatro Coliseo" class="relative bg-petroleo rounded-3xl overflow-hidden">
             <div id="slides" class="h-56 md:h-96">
-                <img src="imgs/coliseo2.png" alt="Teatro Coliseo por dentro"
+                <img src="imgs/coliseo2.png"
+                    alt="Sala del Teatro Coliseo vista desde el fondo: platea de butacas rojas, palcos en forma de herradura con barandas doradas, escenario con cortinas rojas y techo pintado"
+                    data-pie="La sala en forma de herradura, con platea, palcos y techo pintado."
                     class="slide w-full h-full object-cover text-white">
-                <img src="imgs/coliseo1.png" alt="Teatro Coliseo"
+                <img src="imgs/coliseo1.png"
+                    alt="Butacas rojas de la platea y, arriba, balcones curvos con luces y detalles dorados"
+                    data-pie="Las butacas de la platea y los balcones, vistos desde la sala."
                     class="slide hidden w-full h-full object-cover text-white">
-                <img src="imgs/teatro-coliseo3.png" alt="Teatro Coliseo por dentro"
+                <img src="imgs/teatro-coliseo3.png"
+                    alt="Sala con público en la platea y en los palcos, un orador en el escenario frente a la cortina roja y una pantalla con el título de una ópera"
+                    data-pie="Una función con público en la platea y en los palcos."
                     class="slide hidden w-full h-full object-cover text-white">
-                <img src="imgs/teatro-colise-afuera.png" alt="Teatro Coliseo por fuera"
+                <img src="imgs/teatro-colise-afuera.png"
+                    alt="Fachada de esquina de color claro, con ventanas en arco y un balcón con banderas de Argentina e Italia, en una calle con árboles"
+                    data-pie="El edificio por fuera: fachada de esquina con balcón y banderas de Argentina e Italia."
                     class="slide hidden w-full h-full object-cover text-white">
                     
             </div>
@@ -145,6 +153,7 @@
 
             <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2" id="puntos"></div>
         </section>
+        <p id="pie-imagen" class="mt-2 text-sm text-gray-700" aria-live="polite"></p>
 
         <!-- titulo y boton de ubicacion -->
         <div class="mt-6 md:flex md:items-start md:justify-between md:gap-6">

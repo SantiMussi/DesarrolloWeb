@@ -124,16 +124,23 @@
         </div>
 
         <!-- carrusel -->
-        <section aria-label="Imágenes de Capital del Tango" class="relative bg-petroleo rounded-3xl overflow-hidden">
+        <section aria-label="Imágenes del Paseo Costanera" class="relative bg-petroleo rounded-3xl overflow-hidden">
             <div id="slides" class="h-56 md:h-96">
-                <img src="imgs/paseo-costanera.jpg" alt="Vista del Paseo Costanera"
+                <img src="imgs/paseo-costanera.jpg"
+                    alt="Pasto en primer plano y, al fondo, el puente atirantado Zárate–Brazo Largo con su viaducto, bajo un cielo azul con algunas nubes"
+                    data-pie="El puente Zárate–Brazo Largo visto desde el parque de la costanera."
                     class="slide w-full h-full object-cover text-white">
-                <img src="imgs/costanera-de-zarate1.png" alt="Vista del Paseo Costanera con el puente Brazo Largo al fondo"
-                    alt="Estrofas de Naranjo en flor pintadas en carteles sobre el empedrado de la calle Dorrego"
+                <img src="imgs/costanera-de-zarate1.png"
+                    alt="Letrero con el nombre Zárate en letras blancas, entre palmeras y bancos de madera, con una senda asfaltada; al fondo, el puente rojo sobre el río"
+                    data-pie="El cartel de Zárate sobre la ribera, con la senda para caminar y el puente de fondo."
                     class="slide hidden w-full h-full object-cover text-white">
-                <img src="imgs/mercado.png" alt="Vista del Mercado de Zárate, con mesas al aire libre"
+                <img src="imgs/mercado.png"
+                    alt="Vista desde arriba del Mercado de Zárate: una torre con el cartel del mercado, una terraza con mesas y un edificio de techo anaranjado; al fondo, el río y el puente"
+                    data-pie="El Mercado de Zárate, sobre la costanera: propuestas gastronómicas con mesas al aire libre."
                     class="slide hidden w-full h-full object-cover text-white">
-                <img src="imgs/mercadito1.png" alt="Mercado de Zarate de noche"
+                <img src="imgs/mercadito1.png"
+                    alt="Pasaje empedrado de noche, con casas de chapa acanalada, ventanales de vitrales de colores y faroles encendidos"
+                    data-pie="El mercado de noche: pasaje de adoquines, casas de chapa y vitrales iluminados. Foto de Mariana Medons."
                     class="slide hidden w-full h-full object-cover text-white">
             </div>
 
@@ -145,6 +152,7 @@
 
             <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2" id="puntos"></div>
         </section>
+        <p id="pie-imagen" class="mt-2 text-sm text-gray-700" aria-live="polite"></p>
 
         <!-- titulo y boton de ubicacion -->
         <div class="mt-6 md:flex md:items-start md:justify-between md:gap-6">

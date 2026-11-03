@@ -126,14 +126,21 @@
         <!-- carrusel -->
         <section aria-label="Imágenes del Kartódromo" class="relative bg-petroleo rounded-3xl overflow-hidden">
             <div id="slides" class="h-56 md:h-96">
-                <img src="./imgs/karting.png" alt="Kartódromo Internacional de Zárate"
+                <img src="imgs/karting.png"
+                    alt="Piloto con casco blanco al volante de un kart con el número 998 en plena pista, con otro kart detrás"
+                    data-pie="Karts en pista durante una carrera."
                     class="slide w-full h-full object-cover text-white">
-                <img src="./imgs/bizarrap-y-colapinto-1200x675.jpg"
-                    alt="Bizarrap y Colapinto en el Kartódromo"
+                <img src="imgs/bizarrap-y-colapinto-1200x675.jpg"
+                    alt="Dos jóvenes posan abrazados junto a la pista: uno con gorra negra, anteojos oscuros y un casco naranja en la mano, y el otro con el buzo de un equipo de carreras"
+                    data-pie="Bizarrap y Colapinto durante su visita al kartódromo."
                     class="slide hidden w-full h-full object-cover text-white">
-                <img src="./imgs/franco.jpg" alt="Franco Colapinto en el Kartódromo"
+                <img src="imgs/franco.jpg"
+                    alt="Piloto con casco amarillo y verde y mono de carreras, al volante de un kart"
+                    data-pie="Franco Colapinto, que empezó a competir en este kartódromo a los seis años."
                     class="slide hidden w-full h-full object-cover text-white">
-                <img src="./imgs/circuito.png" alt="Circuito del Kartódromo"
+                <img src="imgs/circuito.png"
+                    alt="Vista aérea del circuito: pista de asfalto con curvas, bordes pintados de rojo y blanco y, a la derecha, los boxes y las carpas"
+                    data-pie="Vista aérea del circuito y de la zona de boxes."
                     class="slide hidden w-full h-full object-cover text-white">
             </div>
 
@@ -145,6 +152,7 @@
 
             <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2" id="puntos"></div>
         </section>
+        <p id="pie-imagen" class="mt-2 text-sm text-gray-700" aria-live="polite"></p>
 
         <!-- titulo y boton de ubicacion -->
         <div class="mt-6 md:flex md:items-start md:justify-between md:gap-6">
