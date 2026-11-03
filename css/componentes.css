@@ -137,3 +137,25 @@ header[data-transparente].navbar-fijo {
 html {
     scroll-padding-top: 6rem;
 }
+
+/* mapa del recorrido: el z-index propio evita que Leaflet tape el navbar */
+.mapa {
+    position: relative;
+    z-index: 0;
+}
+
+.marcador-mapa,
+.numero-parada {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background-color: var(--petroleo);
+    color: #ffffff;
+    border: 2px solid var(--amarillo);
+    font-weight: 700;
+    font-size: 0.875rem;
+}
