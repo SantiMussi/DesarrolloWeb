@@ -224,6 +224,15 @@ function finalizarSolicitud() {
     document.getElementById('titulo-confirmacion').focus();
 }
 
+// si viene de una pagina de lugar, deja marcadas sus actividades
+let actividadesElegidas = (new URLSearchParams(window.location.search).get('actividad') || '').split(',');
+
+if (actividadesElegidas.includes('costanera')) costanera.checked = true;
+if (actividadesElegidas.includes('naranjos')) naranjos.checked = true;
+if (actividadesElegidas.includes('anfiteatro')) anfiteatro.checked = true;
+if (actividadesElegidas.includes('teatro')) teatro.checked = true;
+if (actividadesElegidas.includes('karting')) karting.checked = true;
+
 calcular();
 
 function agregarValidacion(campo, idMensaje, mensajeVacio, mensajeFormato) {
