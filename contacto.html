@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Rutas Zárate</title>
+    <meta name="description"
+        content="Escribinos tu consulta sobre el recorrido por Zárate.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="css/componentes.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petroleo: '#073d4f',
+                        azul: '#2f6a82',
+                        crema: '#fff7e8',
+                        texto: '#123d4d',
+                        verde: '#cfe8d6',
+                        celeste: '#daedf3',
+                        amarillo: '#f6d56b'
+                    },
+                    fontFamily: {
+                        titulo: ['Poppins', 'sans-serif'],
+                        cuerpo: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-crema text-texto font-cuerpo min-h-screen flex flex-col">
+
+    <header class="bg-petroleo text-white">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+
+            <a href="index.html#lugares" class="lg:hidden font-titulo font-semibold foco">&lsaquo; Volver</a>
+            <a href="index.html" class="hidden lg:block foco">
+                <img src="./imgs/logo1.png" alt="Rutas Zárate, ir al inicio" class="w-32">
+            </a>
+
+            <nav class="hidden lg:block" aria-label="Principal">
+                <ul class="flex items-center gap-6 text-sm whitespace-nowrap">
+                    <li><a href="index.html" class="hover:underline foco">Inicio</a></li>
+                    <li><a href="paseo-costanera.html" class="hover:underline foco">Paseo Costanera</a></li>
+                    <li><a href="capital-del-tango.html"
+                            class="hover:underline foco">Capital del Tango</a></li>
+                    <li><a href="teatro-coliseo.html" class="hover:underline foco">Teatro Coliseo</a></li>
+                    <li><a href="kartodromo.html" class="hover:underline foco">Kartódromo</a></li>
+                    <li class="ml-4 border-l border-white/40 pl-5">
+                        <a href="mi-carrito.html" class="inline-block w-36 text-left whitespace-nowrap font-semibold hover:underline foco">Mi carrito</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button id="abrir-menu" type="button" aria-label="Abrir menú" aria-expanded="false"
+                class="lg:hidden p-1 foco">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="menu-celu" class="hidden fixed inset-0 z-40 bg-black/60 lg:hidden">
+        <div class="bg-petroleo text-white rounded-3xl m-5 p-6">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-titulo font-bold">Rutas Zárate</span>
+                <button id="cerrar-menu" type="button" aria-label="Cerrar menú" class="p-1 foco">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M5 5l14 14M19 5L5 19" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="space-y-1">
+                <li><a href="index.html" class="block py-2 foco">Inicio</a></li>
+                <li><a href="paseo-costanera.html" class="block py-2 foco">Paseo Costanera Zárate</a></li>
+                <li><a href="capital-del-tango.html"
+                        class="block py-2 foco">Ciudad Capital del Tango</a></li>
+                <li><a href="teatro-coliseo.html" class="block py-2 foco">Teatro Coliseo</a></li>
+                <li><a href="kartodromo.html" class="block py-2 foco">Kartódromo Internacional</a></li>
+                <li class="border-t border-white/40">
+                    <a href="mi-carrito.html" class="block py-3 font-semibold foco">Mi carrito</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <main id="contenido" class="flex-1 max-w-6xl w-full mx-auto px-5 py-6 md:py-10">
+        <a href="index.html#lugares" class="inline-block text-sm font-semibold text-azul hover:underline foco-oscuro">
+            &larr; Seguir explorando Zárate
+        </a>
+
+        <div class="mt-7 mb-8 max-w-2xl">
+            <p class="text-azul font-semibold text-sm uppercase tracking-widest">Contacto</p>
+            <h1 class="font-titulo font-bold text-3xl md:text-5xl mt-3 leading-tight">¿Tenés alguna consulta?</h1>
+            <p class="mt-4 leading-relaxed">Escribinos sobre el recorrido, los horarios o las actividades. Si preferís una respuesta al instante, probá el chat: el botón amarillo de abajo a la derecha.</p>
+        </div>
+
+        <div class="grid gap-10 lg:grid-cols-3 items-start">
+            <div class="lg:col-span-2 min-w-0">
+                <form id="formulario-contacto" novalidate aria-describedby="aviso-simulacion">
+                    <p id="aviso-simulacion" class="text-sm mb-5">
+                        Los campos con * son obligatorios. Este formulario es una simulación: tu mensaje no se envía a ningún servidor.
+                    </p>
+
+                    <label for="nombre" class="block text-sm font-semibold">Nombre y apellido *</label>
+                    <input id="nombre" name="nombre" type="text" autocomplete="name" required
+                        aria-describedby="error-nombre"
+                        class="mt-2 w-full rounded-xl border border-azul bg-white p-3 foco-oscuro">
+                    <p id="error-nombre" role="alert" class="mt-2 text-sm font-semibold text-red-700"></p>
+
+                    <label for="correo" class="block text-sm font-semibold mt-5">Correo electrónico *</label>
+                    <input id="correo" name="correo" type="email" autocomplete="email" required
+                        aria-describedby="error-correo"
+                        class="mt-2 w-full rounded-xl border border-azul bg-white p-3 foco-oscuro">
+                    <p id="error-correo" role="alert" class="mt-2 text-sm font-semibold text-red-700"></p>
+
+                    <label for="motivo" class="block text-sm font-semibold mt-5">Motivo de la consulta *</label>
+                    <select id="motivo" name="motivo" required aria-describedby="error-motivo"
+                        class="mt-2 w-full sm:w-auto rounded-xl border border-azul bg-white p-3 foco-oscuro">
+                        <option value="">Elegí un motivo</option>
+                        <option value="Información sobre un lugar">Información sobre un lugar</option>
+                        <option value="Horarios y precios">Horarios y precios</option>
+                        <option value="Reserva o carrito">Reserva o carrito</option>
+                        <option value="Sugerencia">Sugerencia</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <p id="error-motivo" role="alert" class="mt-2 text-sm font-semibold text-red-700"></p>
+
+                    <label for="mensaje" class="block text-sm font-semibold mt-5">Mensaje *</label>
+                    <textarea id="mensaje" name="mensaje" rows="6" maxlength="500" required
+                        aria-describedby="contador-mensaje error-mensaje"
+                        class="mt-2 w-full rounded-xl border border-azul bg-white p-3 foco-oscuro"></textarea>
+                    <p id="contador-mensaje" class="text-xs mt-1">0 de 500 caracteres</p>
+                    <p id="error-mensaje" role="alert" class="mt-2 text-sm font-semibold text-red-700"></p>
+
+                    <p id="error-general" role="alert" class="mt-5 font-semibold text-red-700"></p>
+
+                    <button type="submit" class="boton-principal mt-5 foco-oscuro">Enviar consulta</button>
+                </form>
+
+                <section id="confirmacion" style="display: none;" class="bg-verde rounded-2xl p-5 md:p-6" aria-labelledby="titulo-confirmacion">
+                    <h2 id="titulo-confirmacion" tabindex="-1" class="font-titulo font-bold text-xl foco-oscuro">¡Recibimos tu consulta!</h2>
+                    <p class="mt-3">Gracias, <strong id="confirmacion-nombre"></strong>. Te respondemos a <strong id="confirmacion-correo" class="break-words"></strong> lo antes posible.</p>
+                    <p class="mt-2">Motivo: <strong id="confirmacion-motivo"></strong>.</p>
+                    <p class="mt-3 text-sm">Recordá que este formulario es una simulación y el mensaje no se envió realmente.</p>
+                    <button id="enviar-otra" type="button" class="underline font-semibold mt-5 foco-oscuro">Enviar otra consulta</button>
+                </section>
+            </div>
+
+            <aside aria-labelledby="titulo-otras-vias">
+                <h2 id="titulo-otras-vias" class="font-titulo font-bold text-xl">Otras formas de averiguar</h2>
+                <ul class="mt-4 space-y-4 text-sm leading-relaxed">
+                    <li><strong>Chat de preguntas frecuentes.</strong> Tocá el botón amarillo para consultar horarios, precios y cómo llegar.</li>
+                    <li><strong>Teatro Coliseo.</strong> Teléfono 03487 42-2762.</li>
+                    <li><strong>Armar tu recorrido.</strong> Calculá el costo en <a href="mi-carrito.html" class="underline font-semibold foco-oscuro">Mi carrito</a>.</li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="bg-petroleo text-white text-xs">
+        <div class="max-w-6xl mx-auto px-5 py-4">
+            Grupo 10: Agostino Lucía, Maestri Paula, Mussi Santiago, Peduto Lautaro
+        </div>
+    </footer>
+    <script src="js/navbar.js"></script>
+    <script src="js/contacto.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+
+</html>
