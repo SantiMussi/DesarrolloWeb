@@ -46,7 +46,9 @@ function mostrar(n) {
         slides[i].classList.toggle('hidden', i !== actual);
         puntos[i].classList.toggle('bg-white', i === actual);
     }
-    pieImagen.textContent = slides[actual].dataset.pie;
+    if (pieImagen !== null) {
+        pieImagen.textContent = slides[actual].dataset.pie;
+    }
 }
 
 document.getElementById('anterior').addEventListener('click', function () { mostrar(actual - 1); });
