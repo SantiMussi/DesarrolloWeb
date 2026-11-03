@@ -118,3 +118,22 @@
     text-decoration-thickness: 5px;
     text-underline-offset: 7px;
 }
+
+/* navbar que acompaña al bajar, igual en todas las paginas */
+.navbar-fijo {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+}
+
+/* en la principal flota sobre la foto de portada */
+header[data-transparente].navbar-fijo {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+/* con el navbar fijo, los saltos a una seccion no la dejan tapada */
+html {
+    scroll-padding-top: 6rem;
+}
