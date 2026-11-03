@@ -103,3 +103,18 @@
     padding: 1.25rem;
     border-radius: 1.5rem;
 }
+
+/* El foco de estas secciones se indica en su título */
+#lugares:focus,
+#ubicacion:focus {
+    outline: none;
+}
+
+/* Destacar únicamente el título de destino */
+#lugares:focus h2,
+#ubicacion:focus h2 {
+    text-decoration: underline;
+    text-decoration-color: var(--amarillo);
+    text-decoration-thickness: 5px;
+    text-underline-offset: 7px;
+}
