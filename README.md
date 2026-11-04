@@ -109,7 +109,3 @@ Algunas decisiones que tomamos y por qué:
 
 **Lautaro Peduto**
 - No hay commits suyos en el repositorio. Su punto de interés en la Actividad 2 era Paseo Costanera, y esa página la armaron Paula (estructura) y Lucía (contenido).
-
-## Cosas que nos quedaron pendientes
-
-- No revisamos con una herramienta el contraste de todos los colores.
