@@ -59,7 +59,7 @@
                             class="hover:underline foco">Capital del Tango</a></li>
                     <li><a href="teatro-coliseo.html" class="hover:underline foco">Teatro Coliseo</a></li>
                     <li><a href="kartodromo.html" class="hover:underline foco">Kartódromo</a></li>
-                    <li><a href="contacto.html" aria-current="page" class="font-semibold text-amarillo underline underline-offset-4 foco">Contacto</a></li>
+                    <li class="ml-4 border-l border-white/40 pl-5"><a href="contacto.html" aria-current="page" class="font-semibold text-amarillo underline underline-offset-4 foco">Contacto</a></li>
                     <li class="ml-4 border-l border-white/40 pl-5">
                         <a href="mi-carrito.html" class="inline-block w-28 text-left whitespace-nowrap font-semibold hover:underline foco">Mi carrito</a>
                     </li>
@@ -102,8 +102,8 @@
         </div>
     </div>
 
-    <main id="contenido" class="flex-1 max-w-6xl w-full mx-auto px-5 py-6 md:py-10">
-        <a href="index.html#lugares" class="inline-block text-sm font-semibold text-azul hover:underline foco-oscuro">
+    <main id= "contenido" class="flex-1 max-w-6xl w-full mx-auto px-5 py-6 md:py-10">
+        <a href="index.html#lugares" id="antes-y-despues" class="inline-block text-sm font-semibold text-azul hover:underline foco-oscuro">
             &larr; Seguir explorando Zárate
         </a>
 
@@ -114,7 +114,7 @@
         </div>
 
         <div class="grid gap-10 lg:grid-cols-3 items-start">
-            <div class="lg:col-span-2 min-w-0">
+            <div class="lg:col-span-2 min-w-0 bg-white border border-[#e7dcca] rounded-2xl p-5 md:p-6">
                 <form id="formulario-contacto" novalidate aria-describedby="aviso-simulacion">
                     <p id="aviso-simulacion" class="text-sm mb-5">
                         Los campos con * son obligatorios. Este formulario es una simulación: tu mensaje no se envía a ningún servidor.
@@ -127,9 +127,20 @@
                     <p id="error-nombre" role="alert" class="mt-2 text-sm font-semibold text-red-700"></p>
 
                     <label for="correo" class="block text-sm font-semibold mt-5">Correo electrónico *</label>
-                    <input id="correo" name="correo" type="email" autocomplete="email" required
-                        aria-describedby="error-correo"
-                        class="mt-2 w-full rounded-xl border border-azul bg-white p-3 foco-oscuro">
+                    <p id="ayuda-correo" class="text-sm mt-1">Escribí solo la parte anterior a @gmail.com.</p>
+                    <div class="flex items-center mt-2 rounded-xl border border-azul bg-white">
+                        <input id="correo" name="correo" type="text"
+                            required
+                            pattern="[A-Za-z0-9]+([.][A-Za-z0-9]+)*"
+                            title="Ingresá letras, números y puntos entre palabras, sin espacios ni @gmail.com."
+                            aria-describedby="ayuda-correo error-correo"
+                            autocapitalize="none"
+                            spellcheck="false"
+                            class="min-w-0 flex-1 rounded-l-xl p-3 bg-transparent foco-oscuro">
+                        <span class="shrink-0 px-3 text-sm text-azul">
+                            @gmail.com
+                        </span>
+                    </div>
                     <p id="error-correo" role="alert" class="mt-2 text-sm font-semibold text-red-700"></p>
 
                     <label for="motivo" class="block text-sm font-semibold mt-5">Motivo de la consulta *</label>
@@ -165,12 +176,12 @@
                 </section>
             </div>
 
-            <aside aria-labelledby="titulo-otras-vias">
-                <h2 id="titulo-otras-vias" class="font-titulo font-bold text-xl">Otras formas de averiguar</h2>
-                <ul class="mt-4 space-y-4 text-sm leading-relaxed">
-                    <li><strong>Chat de preguntas frecuentes.</strong> Tocá el botón amarillo para consultar horarios, precios y cómo llegar.</li>
-                    <li><strong>Teatro Coliseo.</strong> Teléfono 03487 42-2762.</li>
-                    <li><strong>Armar tu recorrido.</strong> Calculá el costo en <a href="mi-carrito.html" class="underline font-semibold foco-oscuro">Mi carrito</a>.</li>
+            <aside class="bg-petroleo text-white rounded-2xl p-6" aria-labelledby="titulo-otras-vias">
+                <h2 id="titulo-otras-vias" class="font-titulo font-bold text-xl text-celeste">Otras formas de averiguar</h2>
+                <ul class="mt-4 divide-y divide-white/20 text-sm leading-relaxed">
+                    <li class="py-4"><strong>Chat de preguntas frecuentes.</strong> Tocá el botón amarillo para consultar horarios, precios y cómo llegar.</li>
+                    <li class="py-4"><strong>Teatro Coliseo.</strong> Teléfono <a href="tel:+543487422762" class="text-celeste underline font-semibold hover:text-amarillo transition-colors foco">03487 42-2762</a>.</li>
+                    <li class="py-4"><strong>Armar tu recorrido.</strong> Calculá el costo en <a href="mi-carrito.html" class="text-celeste underline font-semibold hover:text-amarillo transition-colors foco">Mi carrito</a>.</li>
                 </ul>
             </aside>
         </div>

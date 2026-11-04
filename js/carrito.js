@@ -149,10 +149,9 @@ formulario.addEventListener('submit', function (evento) {
         return;
     }
 
-    if (nombre.value.trim() === '') {
-        document.getElementById('error-nombre').textContent =
-            'Completá tu nombre y apellido.';
-
+    let errorNombre = revisarNombre();
+    if (errorNombre !== '') {
+        document.getElementById('error-nombre').textContent = errorNombre;
         nombre.focus();
         return;
     }
@@ -257,12 +256,53 @@ if (actividadesElegidas.includes('karting')) karting.checked = true;
 
 calcular();
 
-function agregarValidacion(campo, idMensaje, mensajeVacio, mensajeFormato) {
+function revisarNombre() {
+    let texto = nombre.value.trim();
+
+    if (texto === '') {
+        return 'Completá tu nombre y apellido.';
+    }
+
+    let cantidadLetras = 0;
+    for (let i = 0; i < texto.length; i++) {
+        let letra = texto[i];
+        let esLetra = (letra >= 'A' && letra <= 'Z') || (letra >= 'a' && letra <= 'z');
+
+        if (letra === 'Á' || letra === 'É' || letra === 'Í' || letra === 'Ó' || letra === 'Ú' ||
+            letra === 'Ü' || letra === 'Ñ' || letra === 'á' || letra === 'é' || letra === 'í' ||
+            letra === 'ó' || letra === 'ú' || letra === 'ü' || letra === 'ñ') {
+            esLetra = true;
+        }
+
+        if (esLetra === true) {
+            cantidadLetras = cantidadLetras + 1;
+        }
+
+        if (letra !== ' ' && esLetra === false) {
+            return 'Usá solo letras y espacios en el nombre.';
+        }
+    }
+
+    if (cantidadLetras < 3) {
+        return 'El nombre es muy corto. Escribí al menos 3 letras.';
+    }
+
+    return '';
+}
+
+function agregarValidacion(campo, idMensaje, mensajeVacio, mensajeFormato, revisar) {
     let mensaje = document.getElementById(idMensaje);
 
     function revisarCampo() {
+        let errorPersonalizado = '';
+        if (revisar !== undefined) {
+            errorPersonalizado = revisar();
+        }
+
         if (campo.value.trim() === '') {
             mensaje.textContent = mensajeVacio;
+        } else if (errorPersonalizado !== '') {
+            mensaje.textContent = errorPersonalizado;
         } else if (campo.validity.valid === false) {
             mensaje.textContent = mensajeFormato;
         } else {
@@ -285,13 +325,14 @@ agregarValidacion(
     nombre,
     'error-nombre',
     'Completá tu nombre y apellido.',
-    'Revisá el nombre y apellido ingresado.'
+    'Revisá el nombre y apellido ingresado.',
+    revisarNombre
 );
 
 agregarValidacion(
     correo,
     'error-correo',
-    'Completá tu usuario de Gmail, por ejemplo: paula.maestri.',
+    'Completá tu usuario de Gmail.',
     'Escribí solo tu usuario, sin @gmail.com.'
 );
 

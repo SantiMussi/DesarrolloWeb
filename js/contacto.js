@@ -14,7 +14,26 @@ function revisarNombre() {
     if (texto === '') {
         return 'Completá tu nombre.';
     }
-    if (texto.length < 3) {
+    let cantidadLetras = 0;
+    for (let i = 0; i < texto.length; i++) {
+        let letra = texto[i];
+        let esLetra = (letra >= 'A' && letra <= 'Z') || (letra >= 'a' && letra <= 'z');
+
+        if (letra === 'Á' || letra === 'É' || letra === 'Í' || letra === 'Ó' || letra === 'Ú' ||
+            letra === 'Ü' || letra === 'Ñ' || letra === 'á' || letra === 'é' || letra === 'í' ||
+            letra === 'ó' || letra === 'ú' || letra === 'ü' || letra === 'ñ') {
+            esLetra = true;
+        }
+
+        if (esLetra === true) {
+            cantidadLetras = cantidadLetras + 1;
+        }
+
+        if (letra !== ' ' && esLetra === false) {
+            return 'Usá solo letras y espacios en el nombre.';
+        }
+    }
+    if (cantidadLetras < 3) {
         return 'El nombre es muy corto. Escribí al menos 3 letras.';
     }
     return '';
@@ -26,8 +45,8 @@ function revisarCorreo() {
     if (texto === '') {
         return 'Completá tu correo electrónico.';
     }
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(texto) === false) {
-        return 'Revisá el correo. Tiene que tener este formato: nombre@ejemplo.com.';
+    if (/^[A-Za-z0-9]+([.][A-Za-z0-9]+)*$/.test(texto) === false) {
+        return 'Ingresá solo la parte anterior a @gmail.com, con letras, números y puntos entre palabras.';
     }
     return '';
 }
@@ -118,7 +137,7 @@ formulario.addEventListener('submit', function (evento) {
 
     // simulacion: no se manda a ningun servidor
     document.getElementById('confirmacion-nombre').textContent = nombre.value.trim();
-    document.getElementById('confirmacion-correo').textContent = correo.value.trim();
+    document.getElementById('confirmacion-correo').textContent = correo.value.trim() + '@gmail.com';
     document.getElementById('confirmacion-motivo').textContent = motivo.value;
 
     formulario.style.display = 'none';

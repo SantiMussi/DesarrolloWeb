@@ -159,3 +159,12 @@ html {
     font-weight: 700;
     font-size: 0.875rem;
 }
+
+ /* diseño de boton siguiente y anterior en las paginas de detalle */
+#antes-y-despues {
+    background-color: var(--celeste);
+    border-radius: 1.5rem;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+}
